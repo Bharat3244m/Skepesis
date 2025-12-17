@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}Skepesis — Master Knowledge Through Curiosity{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Master Knowledge<br>
+                Through Curiosity
+            </h1>
+            <p class="hero-subtitle">
+                Adaptive learning platform that analyzes your confidence patterns,
+                identifies knowledge gaps, and provides personalized insights to accelerate your growth.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-primary btn-large" onclick="showStartModal()">
+                    Start Learning
+                </button>
+                <a href="/dashboard" class="btn-secondary btn-large">
+                    View Progress
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="data-grid">
+                <div class="data-point" style="--delay: 0s;">
+                    <div class="metric-value">94%</div>
+                    <div class="metric-label">Confidence Accuracy</div>
+                </div>
+                <div class="data-point" style="--delay: 0.1s;">
+                    <div class="metric-value">87</div>
+                    <div class="metric-label">Curiosity Score</div>
+                </div>
+                <div class="data-point" style="--delay: 0.2s;">
+                    <div class="metric-value">12</div>
+                    <div class="metric-label">Gaps Identified</div>
+                </div>
+                <div class="data-point" style="--delay: 0.3s;">
+                    <div class="metric-value">+23%</div>
+                    <div class="metric-label">Growth Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <div class="features-header">
+            <h2 class="section-title">Intelligent Learning Features</h2>
+            <p class="section-subtitle">
+                Adaptive platform designed to understand how you learn and help you improve
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Curiosity Analysis</h3>
+                <p class="feature-description">
+                    Track patterns between your confidence levels and actual performance.
+                    Discover when you're exploring vs. when you're certain, revealing your learning approach.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Confidence-Aware Evaluation</h3>
+                <p class="feature-description">
+                    Not just right or wrong. Rate your confidence on each answer to build
+                    self-awareness and calibrate your knowledge assessment skills.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Progress Over Time</h3>
+                <p class="feature-description">
+                    Monitor your accuracy trends, confidence calibration, and curiosity scores
+                    across multiple sessions to see real growth.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3 class="feature-title">Insight-Driven Feedback</h3>
+                <p class="feature-description">
+                    Get personalized insights about your learning style, knowledge gaps,
+                    and specific areas where you're overconfident or uncertain.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-box-value" id="totalQuestions">500+</div>
+                <div class="stat-box-label">Total Questions</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-value" id="activeLearners">150+</div>
+                <div class="stat-box-label">Active Learners</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-value" id="totalAttempts">2.5K+</div>
+                <div class="stat-box-label">Total Attempts</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="how-header">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">
+                Simple 4-step process to start learning smarter
+            </p>
+        </div>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Enter Your ID</h3>
+                <p class="step-description">
+                    Start by entering your name and selecting a category.
+                    Choose how many questions you'd like to tackle.
+                </p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Answer Quiz</h3>
+                <p class="step-description">
+                    Work through questions at your own pace.
+                    Take time to think through each answer carefully.
+                </p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Rate Confidence</h3>
+                <p class="step-description">
+                    After each answer, rate your confidence from 0-100%.
+                    This helps us understand your self-awareness.
+                </p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Get Insights</h3>
+                <p class="step-description">
+                    Receive detailed analysis of your learning patterns,
+                    curiosity score, and personalized recommendations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-card">
+            <h2 class="cta-title">Ready to Master Knowledge Through Curiosity?</h2>
+            <p class="cta-description">
+                Join learners who are building self-awareness and improving their knowledge calibration
+            </p>
+            <button class="btn-primary btn-large" onclick="showStartModal()">
+                Start Learning
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Start Modal -->
+<div id="startModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Begin Learning Session</h2>
+            <button class="modal-close" onclick="hideStartModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="startForm" onsubmit="startQuiz(event)">
+                <div class="form-group">
+                    <label class="form-label">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="studentName" 
+                        class="form-input" 
+                        placeholder="Enter your name"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Category (Optional)</label>
+                    <select id="category" class="form-input">
+                        <option value="">Any Category</option>
+                        <!-- Categories will be loaded dynamically -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Number of Questions</label>
+                    <input 
+                        type="number" 
+                        id="questionCount" 
+                        class="form-input" 
+                        value="10" 
+                        min="5" 
+                        max="20"
+                    >
+                </div>
+                
+                <button type="submit" class="btn-primary btn-block">
+                    Start Session
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load categories on page load
+document.addEventListener('DOMContentLoaded', loadCategories);
+
+async function loadCategories() {
+    try {
+        const response = await fetch('/api/questions/categories');
+        const categories = await response.json();
+        
+        const select = document.getElementById('category');
+        categories.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat;
+            option.textContent = cat;
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading categories:', error);
+    }
+}
+
+function showStartModal() {
+    document.getElementById('startModal').classList.add('active');
+}
+
+function hideStartModal() {
+    document.getElementById('startModal').classList.remove('active');
+}
+
+async function startQuiz(event) {
+    event.preventDefault();
+    
+    const studentName = document.getElementById('studentName').value;
+    const category = document.getElementById('category').value;
+    const questionCount = document.getElementById('questionCount').value;
+    
+    try {
+        // Create attempt
+        const response = await fetch('/api/attempts/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ student_name: studentName })
+        });
+        
+        const attempt = await response.json();
+        
+        // Redirect to quiz with parameters
+        window.location.href = `/quiz?attempt_id=${attempt.id}&count=${questionCount}&category=${category}`;
+    } catch (error) {
+        console.error('Error starting quiz:', error);
+        alert('Failed to start quiz. Please try again.');
+    }
+}
+
+// Close modal on outside click
+window.onclick = function(event) {
+    const modal = document.getElementById('startModal');
+    if (event.target === modal) {
+        hideStartModal();
+    }
+}
+</script>
+{% endblock %}

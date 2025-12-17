@@ -1,0 +1,597 @@
+{% extends "base.html" %}
+
+{% block title %}Learning History — Skepesis{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">History</span>
+        </div>
+        <h1 class="dashboard-title">Learning History</h1>
+        <p class="dashboard-subtitle">Look up your quiz history and track progress over time</p>
+    </div>
+    
+    <!-- Student Lookup Section -->
+    <div class="lookup-section">
+        <div class="lookup-card">
+            <div class="lookup-icon">🔍</div>
+            <div class="lookup-content">
+                <h2 class="lookup-title">Find Your History</h2>
+                <p class="lookup-description">Enter your name to see all your quiz sessions and detailed insights</p>
+                <form class="lookup-form" onsubmit="lookupStudent(event)">
+                    <div class="lookup-input-group">
+                        <input 
+                            type="text" 
+                            id="studentNameSearch" 
+                            class="form-input lookup-input" 
+                            placeholder="Enter your name..."
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="btn-primary">
+                            Search
+                        </button>
+                    </div>
+                    <div class="lookup-suggestions" id="lookupSuggestions"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results Section (hidden initially) -->
+    <div class="student-results" id="studentResults" style="display: none;">
+        <div class="results-header-bar">
+            <div class="student-profile">
+                <div class="student-avatar" id="studentAvatar">👤</div>
+                <div class="student-info">
+                    <h2 class="student-name-display" id="displayStudentName">Student Name</h2>
+                    <p class="student-subtitle" id="studentSubtitle">Loading history...</p>
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="clearSearch()">
+                ← Search Again
+            </button>
+        </div>
+        
+        <!-- Student Stats Overview -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalAttempts">0</div>
+                    <div class="stat-label">Total Sessions</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="avgAccuracy">0%</div>
+                    <div class="stat-label">Avg Accuracy</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🔍</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="avgCuriosity">0</div>
+                    <div class="stat-label">Avg Curiosity</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalQuestions">0</div>
+                    <div class="stat-label">Questions Answered</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Over Time -->
+        <div class="progress-section">
+            <h3 class="section-title">Performance Trend</h3>
+            <div class="progress-chart" id="progressChart">
+                <div class="chart-placeholder">Loading chart...</div>
+            </div>
+        </div>
+        
+        <!-- Sessions List -->
+        <div class="attempts-section">
+            <div class="section-header">
+                <h3 class="section-title">All Sessions</h3>
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-view="cards" onclick="switchView('cards')">
+                        <span>📋</span> Cards
+                    </button>
+                    <button class="toggle-btn" data-view="table" onclick="switchView('table')">
+                        <span>📊</span> Table
+                    </button>
+                </div>
+            </div>
+            <div class="attempts-display" id="attemptsDisplay">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- All Students Overview (shown when no search) -->
+    <div class="all-students-section" id="allStudentsSection">
+        <h3 class="section-title">Recent Activity</h3>
+        <p class="section-description">Recent quiz sessions across all learners</p>
+        <div class="recent-attempts" id="recentAttempts">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentView = 'cards';
+let allAttempts = [];
+let filteredAttempts = [];
+let allStudentNames = [];
+
+// Load initial data
+async function loadInitialData() {
+    try {
+        const response = await fetch('/api/attempts/');
+        allAttempts = await response.json();
+        
+        // Extract unique student names for autocomplete
+        allStudentNames = [...new Set(allAttempts.map(a => a.student_name))];
+        
+        // Show recent attempts
+        displayRecentAttempts();
+        
+    } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('recentAttempts').innerHTML = `
+            <div class="error-state">
+                <div class="error-icon">📡</div>
+                <h3 class="error-title">Unable to Load Data</h3>
+                <p class="error-description">Please try refreshing the page.</p>
+                <button onclick="loadInitialData()" class="btn-primary">Try Again</button>
+            </div>
+        `;
+    }
+}
+
+function displayRecentAttempts() {
+    const container = document.getElementById('recentAttempts');
+    
+    if (allAttempts.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon">🌱</div>
+                <h3 class="empty-state-title">No Quiz History Yet</h3>
+                <p class="empty-state-description">
+                    Be the first to take a quiz and start your learning journey!
+                </p>
+                <a href="/" class="btn-primary">Start Your First Quiz</a>
+            </div>
+        `;
+        return;
+    }
+    
+    // Sort by date, most recent first, take top 6
+    const recent = [...allAttempts]
+        .sort((a, b) => new Date(b.started_at) - new Date(a.started_at))
+        .slice(0, 6);
+    
+    let html = '<div class="recent-grid">';
+    
+    recent.forEach(attempt => {
+        const date = new Date(attempt.started_at);
+        const dateStr = date.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric'
+        });
+        const accuracy = attempt.total_questions > 0 
+            ? Math.round((attempt.correct_answers / attempt.total_questions) * 100)
+            : 0;
+        
+        html += `
+            <div class="recent-card" onclick="searchByName('${attempt.student_name.replace(/'/g, "\\'")}')">
+                <div class="recent-card-header">
+                    <span class="recent-avatar">${attempt.student_name.charAt(0).toUpperCase()}</span>
+                    <div class="recent-info">
+                        <span class="recent-name">${attempt.student_name}</span>
+                        <span class="recent-date">${dateStr}</span>
+                    </div>
+                </div>
+                <div class="recent-card-stats">
+                    <div class="recent-stat">
+                        <span class="recent-stat-value ${accuracy >= 70 ? 'success' : accuracy >= 50 ? 'warning' : 'danger'}">${accuracy}%</span>
+                        <span class="recent-stat-label">Score</span>
+                    </div>
+                    <div class="recent-stat">
+                        <span class="recent-stat-value">${attempt.total_questions}</span>
+                        <span class="recent-stat-label">Questions</span>
+                    </div>
+                    <div class="recent-stat">
+                        <span class="recent-stat-value">${Math.round(attempt.curiosity_score)}</span>
+                        <span class="recent-stat-label">Curiosity</span>
+                    </div>
+                </div>
+                <div class="recent-card-footer">
+                    <span class="badge ${attempt.completed_at ? 'success' : 'info'}">${attempt.completed_at ? 'Completed' : 'In Progress'}</span>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    
+    if (allStudentNames.length > 0) {
+        html += `
+            <div class="students-list-hint">
+                <p>📊 <strong>${allStudentNames.length}</strong> learners have taken quizzes. Search above to find your history.</p>
+            </div>
+        `;
+    }
+    
+    container.innerHTML = html;
+}
+
+// Student name autocomplete
+document.getElementById('studentNameSearch').addEventListener('input', function(e) {
+    const value = e.target.value.toLowerCase();
+    const suggestions = document.getElementById('lookupSuggestions');
+    
+    if (value.length < 1) {
+        suggestions.innerHTML = '';
+        suggestions.style.display = 'none';
+        return;
+    }
+    
+    const matches = allStudentNames.filter(name => 
+        name.toLowerCase().includes(value)
+    ).slice(0, 5);
+    
+    if (matches.length === 0) {
+        suggestions.innerHTML = '<div class="suggestion-item no-match">No matching students found</div>';
+        suggestions.style.display = 'block';
+        return;
+    }
+    
+    suggestions.innerHTML = matches.map(name => `
+        <div class="suggestion-item" onclick="searchByName('${name.replace(/'/g, "\\'")}')">
+            <span class="suggestion-avatar">${name.charAt(0).toUpperCase()}</span>
+            <span class="suggestion-name">${name}</span>
+            <span class="suggestion-count">${allAttempts.filter(a => a.student_name === name).length} sessions</span>
+        </div>
+    `).join('');
+    suggestions.style.display = 'block';
+});
+
+// Hide suggestions when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.lookup-form')) {
+        document.getElementById('lookupSuggestions').style.display = 'none';
+    }
+});
+
+function lookupStudent(event) {
+    event.preventDefault();
+    const name = document.getElementById('studentNameSearch').value.trim();
+    if (name) {
+        searchByName(name);
+    }
+}
+
+function searchByName(name) {
+    document.getElementById('studentNameSearch').value = name;
+    document.getElementById('lookupSuggestions').style.display = 'none';
+    
+    // Filter attempts by student name (case insensitive)
+    filteredAttempts = allAttempts.filter(a => 
+        a.student_name.toLowerCase() === name.toLowerCase()
+    );
+    
+    if (filteredAttempts.length === 0) {
+        alert(`No history found for "${name}". Make sure you entered the same name you used when taking quizzes.`);
+        return;
+    }
+    
+    // Show results section, hide all students section
+    document.getElementById('studentResults').style.display = 'block';
+    document.getElementById('allStudentsSection').style.display = 'none';
+    
+    // Update student profile
+    document.getElementById('displayStudentName').textContent = name;
+    document.getElementById('studentAvatar').textContent = name.charAt(0).toUpperCase();
+    document.getElementById('studentSubtitle').textContent = `${filteredAttempts.length} quiz session${filteredAttempts.length !== 1 ? 's' : ''}`;
+    
+    // Calculate and display stats
+    displayStudentStats(filteredAttempts);
+    
+    // Display progress chart
+    displayProgressChart(filteredAttempts);
+    
+    // Display attempts
+    displayAttempts(filteredAttempts);
+}
+
+function clearSearch() {
+    document.getElementById('studentNameSearch').value = '';
+    document.getElementById('studentResults').style.display = 'none';
+    document.getElementById('allStudentsSection').style.display = 'block';
+    filteredAttempts = [];
+}
+
+function displayStudentStats(attempts) {
+    const completedAttempts = attempts.filter(a => a.completed_at);
+    
+    const avgAccuracy = completedAttempts.length > 0
+        ? completedAttempts.reduce((sum, a) => 
+            sum + (a.total_questions > 0 ? (a.correct_answers / a.total_questions) * 100 : 0), 0
+          ) / completedAttempts.length
+        : 0;
+    
+    const avgCuriosity = completedAttempts.length > 0
+        ? completedAttempts.reduce((sum, a) => sum + a.curiosity_score, 0) / completedAttempts.length
+        : 0;
+    
+    const totalQuestions = attempts.reduce((sum, a) => sum + a.total_questions, 0);
+    
+    document.getElementById('totalAttempts').textContent = attempts.length;
+    document.getElementById('avgAccuracy').textContent = Math.round(avgAccuracy) + '%';
+    document.getElementById('avgCuriosity').textContent = Math.round(avgCuriosity);
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+}
+
+function displayProgressChart(attempts) {
+    const container = document.getElementById('progressChart');
+    
+    // Sort by date
+    const sorted = [...attempts]
+        .filter(a => a.completed_at)
+        .sort((a, b) => new Date(a.started_at) - new Date(b.started_at));
+    
+    if (sorted.length < 2) {
+        container.innerHTML = `
+            <div class="chart-placeholder">
+                <div class="chart-placeholder-icon">📈</div>
+                <p>Complete more quizzes to see your progress trend</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Build simple bar chart
+    let html = '<div class="simple-chart">';
+    
+    sorted.slice(-8).forEach((attempt, index) => {
+        const accuracy = attempt.total_questions > 0 
+            ? Math.round((attempt.correct_answers / attempt.total_questions) * 100)
+            : 0;
+        const date = new Date(attempt.started_at);
+        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        
+        html += `
+            <div class="chart-bar-group">
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="height: ${accuracy}%" title="${accuracy}%">
+                        <span class="chart-bar-value">${accuracy}%</span>
+                    </div>
+                </div>
+                <span class="chart-label">${dateStr}</span>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    
+    // Add trend indicator
+    if (sorted.length >= 2) {
+        const recent = sorted.slice(-3);
+        const older = sorted.slice(-6, -3);
+        
+        if (recent.length > 0 && older.length > 0) {
+            const recentAvg = recent.reduce((sum, a) => 
+                sum + (a.correct_answers / a.total_questions) * 100, 0) / recent.length;
+            const olderAvg = older.reduce((sum, a) => 
+                sum + (a.correct_answers / a.total_questions) * 100, 0) / older.length;
+            
+            const diff = recentAvg - olderAvg;
+            const trend = diff > 5 ? 'improving' : diff < -5 ? 'declining' : 'stable';
+            const trendIcon = diff > 5 ? '📈' : diff < -5 ? '📉' : '➡️';
+            const trendText = diff > 5 ? 'Improving!' : diff < -5 ? 'Needs attention' : 'Consistent';
+            
+            html += `
+                <div class="trend-indicator ${trend}">
+                    <span class="trend-icon">${trendIcon}</span>
+                    <span class="trend-text">${trendText}</span>
+                    <span class="trend-detail">${diff > 0 ? '+' : ''}${Math.round(diff)}% vs previous</span>
+                </div>
+            `;
+        }
+    }
+    
+    container.innerHTML = html;
+}
+
+function switchView(view) {
+    currentView = view;
+    
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.view === view) {
+            btn.classList.add('active');
+        }
+    });
+    
+    if (filteredAttempts.length > 0) {
+        displayAttempts(filteredAttempts);
+    }
+}
+
+function displayAttempts(attempts) {
+    const container = document.getElementById('attemptsDisplay');
+    
+    // Sort by date, most recent first
+    attempts.sort((a, b) => new Date(b.started_at) - new Date(a.started_at));
+    
+    if (currentView === 'table') {
+        displayTableView(attempts, container);
+    } else {
+        displayCardsView(attempts, container);
+    }
+}
+
+function displayTableView(attempts, container) {
+    let html = `
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Questions</th>
+                        <th>Score</th>
+                        <th>Curiosity</th>
+                        <th>Confidence</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    
+    attempts.forEach(attempt => {
+        const date = new Date(attempt.started_at);
+        const dateStr = date.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric' 
+        });
+        const timeStr = date.toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        const accuracy = attempt.total_questions > 0 
+            ? Math.round((attempt.correct_answers / attempt.total_questions) * 100)
+            : 0;
+        const status = attempt.completed_at ? 'Completed' : 'In Progress';
+        
+        html += `
+            <tr class="table-row-clickable" onclick="window.location.href='/attempt/${attempt.id}'">
+                <td>
+                    <div class="table-date">${dateStr}</div>
+                    <div class="table-time">${timeStr}</div>
+                </td>
+                <td><strong>${attempt.total_questions}</strong></td>
+                <td>
+                    <span class="score-badge ${accuracy >= 70 ? 'success' : accuracy >= 50 ? 'warning' : 'danger'}">
+                        ${accuracy}%
+                    </span>
+                </td>
+                <td>
+                    <div class="curiosity-display">
+                        <span class="curiosity-value">${Math.round(attempt.curiosity_score)}</span>
+                        <div class="curiosity-bar-mini">
+                            <div class="curiosity-bar-fill" style="width: ${Math.min(attempt.curiosity_score, 100)}%"></div>
+                        </div>
+                    </div>
+                </td>
+                <td>${Math.round(attempt.average_confidence)}%</td>
+                <td>
+                    <span class="badge ${attempt.completed_at ? 'success' : 'info'}">${status}</span>
+                </td>
+                <td>
+                    <div class="table-actions">
+                        <a href="/attempt/${attempt.id}" class="btn-icon" title="View Details" onclick="event.stopPropagation()">📋</a>
+                        ${attempt.completed_at ? `<a href="/results/${attempt.id}" class="btn-icon" title="View Insights" onclick="event.stopPropagation()">💡</a>` : ''}
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
+
+function displayCardsView(attempts, container) {
+    let html = '<div class="attempts-list">';
+    
+    attempts.forEach(attempt => {
+        const date = new Date(attempt.started_at);
+        const dateStr = date.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric' 
+        });
+        const timeStr = date.toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        const accuracy = attempt.total_questions > 0 
+            ? Math.round((attempt.correct_answers / attempt.total_questions) * 100)
+            : 0;
+        const status = attempt.completed_at ? 'Completed' : 'In Progress';
+        const alignment = attempt.confidence_alignment != null ? Math.round(attempt.confidence_alignment) : 0;
+        
+        html += `<div class="attempt-card ${attempt.completed_at ? 'status-completed' : 'status-progress'}">`;
+        html += '<div class="attempt-header">';
+        html += `<div class="attempt-title-group">`;
+        html += `<span class="attempt-id">#${attempt.id}</span>`;
+        html += `<h3 class="attempt-title">Session ${attempt.id}</h3>`;
+        html += `</div>`;
+        html += `<span class="badge ${attempt.completed_at ? 'success' : 'info'}">${status}</span>`;
+        html += '</div>';
+        
+        html += '<div class="attempt-meta">';
+        html += `<span class="attempt-date">📅 ${dateStr} • ${timeStr}</span>`;
+        html += `<span class="attempt-count">📝 ${attempt.total_questions} questions</span>`;
+        html += '</div>';
+        
+        html += '<div class="attempt-stats">';
+        html += '<div class="attempt-stat">';
+        html += '<div class="attempt-stat-label">Accuracy</div>';
+        html += `<div class="attempt-stat-value" style="color: ${accuracy >= 70 ? 'var(--color-success)' : 'var(--color-warning)'}">${accuracy}%</div>`;
+        html += '</div>';
+        html += '<div class="attempt-stat">';
+        html += '<div class="attempt-stat-label">Curiosity</div>';
+        html += `<div class="attempt-stat-value">${Math.round(attempt.curiosity_score)}</div>`;
+        html += '</div>';
+        html += '<div class="attempt-stat">';
+        html += '<div class="attempt-stat-label">Confidence</div>';
+        html += `<div class="attempt-stat-value">${Math.round(attempt.average_confidence)}%</div>`;
+        html += '</div>';
+        html += '<div class="attempt-stat">';
+        html += '<div class="attempt-stat-label">Alignment</div>';
+        html += `<div class="attempt-stat-value">${alignment}%</div>`;
+        html += '</div>';
+        html += '</div>';
+        
+        if (attempt.completed_at) {
+            html += '<div class="attempt-actions">';
+            html += `<a href="/attempt/${attempt.id}" class="btn-secondary">View Details</a>`;
+            html += `<a href="/results/${attempt.id}" class="btn-primary">View Insights</a>`;
+            html += '</div>';
+        } else {
+            html += '<div class="attempt-actions">';
+            html += `<a href="/quiz?attempt_id=${attempt.id}" class="btn-primary">Continue Quiz</a>`;
+            html += '</div>';
+        }
+        
+        html += '</div>';
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// Initialize on page load
+loadInitialData();
+</script>
+{% endblock %}
