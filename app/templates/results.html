@@ -1,163 +1,110 @@
 {% extends "base.html" %}
 
-{% block title %}Results & Insights - Skepesis{% endblock %}
+{% block title %}Analysis - Skepesis{% endblock %}
 
 {% block content %}
-<div class="results-page">
-    <!-- Header Section -->
-    <div class="results-header">
-        <div class="header-content">
-            <span class="completion-badge">
-                <span class="badge-dot"></span>
-                Quiz Complete
-            </span>
-            <h1 class="results-title">Your Learning Insights</h1>
-            <p class="results-subtitle">Understanding how you learn helps you learn better</p>
+<div class="results-page cognitive-report">
+    <!-- Report Header -->
+    <header class="report-header">
+        <span class="status-pill success">
+            <span class="status-dot"></span>
+            Complete
+        </span>
+        <h1 class="report-title">Cognitive Analysis</h1>
+    </header>
+
+    <!-- Metrics Strip -->
+    <div class="metrics-strip">
+        <div class="metric featured">
+            <span class="metric-value" id="accuracy">0%</span>
+            <span class="metric-label">Accuracy</span>
+        </div>
+        <div class="metric">
+            <span class="metric-value" id="avgConfidence">0%</span>
+            <span class="metric-label">Confidence</span>
+        </div>
+        <div class="metric">
+            <span class="metric-value" id="calibrationScore">0%</span>
+            <span class="metric-label">Calibration</span>
+        </div>
+        <div class="metric">
+            <span class="metric-value" id="avgTime">0s</span>
+            <span class="metric-label">Avg Time</span>
         </div>
     </div>
 
-    <!-- Metrics Grid -->
-    <div class="metrics-section">
-        <div class="metrics-grid">
-            <div class="metric-card featured">
-                <div class="metric-value" id="accuracy">
-                    <span class="metric-number">0</span><span class="metric-unit">%</span>
+    <!-- Cognitive Analysis (Primary Section) -->
+    <section class="report-section primary">
+        <div class="section-label">Analysis</div>
+        
+        <div class="cognitive-report-panel" id="aiInsightsContainer">
+            <div class="report-block" id="aiPatternCard">
+                <div class="report-block-header">
+                    <span class="report-block-label">Response Patterns</span>
                 </div>
-                <div class="metric-label">Accuracy</div>
-                <div class="metric-indicator"></div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-value" id="curiosityScore">
-                    <span class="metric-number">0</span>
-                </div>
-                <div class="metric-label">Curiosity Score</div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-value" id="correctCount">
-                    <span class="metric-number">0</span><span class="metric-separator">/</span><span class="metric-total">0</span>
-                </div>
-                <div class="metric-label">Correct Answers</div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-value" id="avgConfidence">
-                    <span class="metric-number">0</span><span class="metric-unit">%</span>
-                </div>
-                <div class="metric-label">Avg. Confidence</div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-value" id="calibrationScore">
-                    <span class="metric-number">0</span><span class="metric-unit">%</span>
-                </div>
-                <div class="metric-label">Calibration</div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-value" id="avgTime">
-                    <span class="metric-number">0</span><span class="metric-unit">s</span>
-                </div>
-                <div class="metric-label">Avg. Time</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Learning Style Section -->
-    <section class="insight-section learning-style-section">
-        <div class="section-header">
-            <h2 class="section-title">Learning Style</h2>
-        </div>
-        <div class="learning-style-card" id="styleBadge">
-            <div class="style-indicator" id="styleIcon">
-                <span class="style-icon-inner">🎯</span>
-            </div>
-            <div class="style-content">
-                <div class="style-name" id="styleName">Analytical</div>
-                <div class="style-description" id="styleDescription">
-                    <span class="placeholder-text">Analyzing your learning patterns...</span>
+                <div class="report-block-content" id="aiPatternContent">
+                    <div class="report-loading">
+                        <span class="report-loading-text">Analyzing</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Confidence Analysis Section -->
-    <section class="insight-section confidence-analysis-section">
-        <div class="section-header">
-            <h2 class="section-title">Confidence Analysis</h2>
-            <p class="section-subtitle">How your confidence correlates with performance</p>
-        </div>
-        <div class="confidence-breakdown" id="confidenceBreakdown">
-            <div class="analysis-placeholder">
-                <span class="placeholder-line"></span>
-                <span class="placeholder-line short"></span>
+            
+            <div class="report-block" id="aiCalibrationCard">
+                <div class="report-block-header">
+                    <span class="report-block-label">Calibration Status</span>
+                </div>
+                <div class="report-block-content" id="aiCalibrationContent">
+                    <div class="report-loading">
+                        <span class="report-loading-text">Assessing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="report-block" id="aiSummaryCard">
+                <div class="report-block-header">
+                    <span class="report-block-label">Summary</span>
+                </div>
+                <div class="report-block-content" id="aiSummaryContent">
+                    <div class="report-loading">
+                        <span class="report-loading-text">Generating</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Confidence vs Correctness -->
-    <section class="insight-section insights-section primary-insight">
-        <div class="section-header">
-            <span class="section-badge">Key Insight</span>
-            <h2 class="section-title">Confidence vs Correctness</h2>
-            <p class="section-subtitle">Understanding the gap between what you know and what you think you know</p>
+    <section class="report-section">
+        <div class="section-label">Confidence Analysis</div>
+        
+        <div class="confidence-matrix" id="confidenceMatrix">
+            <div class="matrix-row">
+                <div class="matrix-cell header"></div>
+                <div class="matrix-cell header">Correct</div>
+                <div class="matrix-cell header">Incorrect</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell header">High Confidence</div>
+                <div class="matrix-cell calibrated" id="highCorrect">—</div>
+                <div class="matrix-cell overconfident" id="highIncorrect">—</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell header">Low Confidence</div>
+                <div class="matrix-cell underconfident" id="lowCorrect">—</div>
+                <div class="matrix-cell calibrated" id="lowIncorrect">—</div>
+            </div>
         </div>
-        <div id="confidenceInsights" class="insight-cards-grid">
-            <!-- Dynamic confidence insights cards -->
-        </div>
-    </section>
-
-    <!-- Patterns Section -->
-    <section class="insight-section patterns-section">
-        <div class="section-header">
-            <h2 class="section-title">Learning Patterns</h2>
-            <p class="section-subtitle">Your cognitive approach and thinking style</p>
-        </div>
-        <div class="patterns-grid" id="patternsGrid">
-            <!-- Dynamic pattern cards -->
-        </div>
-    </section>
-
-    <!-- Knowledge Areas -->
-    <section class="insight-section knowledge-section">
-        <div class="section-header">
-            <h2 class="section-title">Knowledge Areas</h2>
-            <p class="section-subtitle">Performance breakdown by topic</p>
-        </div>
-        <div class="knowledge-areas" id="knowledgeAreas">
-            <!-- Dynamic knowledge area bars -->
-        </div>
-    </section>
-
-    <!-- Reflection & Growth -->
-    <section class="insight-section reflection-section" id="reflectionSection" style="display: none;">
-        <div class="section-header">
-            <h2 class="section-title">Reflection Questions</h2>
-            <p class="section-subtitle">Take a moment to think about your learning process</p>
-        </div>
-        <div class="reflection-prompts" id="reflectionPrompts">
-            <!-- Dynamic reflection prompts -->
-        </div>
-        <button class="btn-primary" onclick="saveReflections()">Save Reflections</button>
-    </section>
-
-    <!-- Improvement Suggestions -->
-    <section class="insight-section suggestions-section" id="suggestionsSection" style="display: none;">
-        <div class="section-header">
-            <h2 class="section-title">Personalized Growth Strategies</h2>
-            <p class="section-subtitle">Actionable recommendations based on your performance</p>
-        </div>
-        <div class="suggestions-list" id="suggestionsList">
-            <!-- Dynamic suggestions -->
+        
+        <div class="confidence-insight" id="confidenceInsight">
+            <span class="insight-text">Calculating confidence alignment...</span>
         </div>
     </section>
 
     <!-- Actions -->
-    <div class="results-actions">
-        <a href="/quiz" class="btn-secondary">Take Another Quiz</a>
-        <a href="/dashboard" class="btn-primary">View Dashboard</a>
-    </div>
+    <footer class="report-actions">
+        <a href="/quiz" class="btn-secondary">New Session</a>
+        <a href="/dashboard" class="btn-primary">View History</a>
+    </footer>
 </div>
 
 <script>
@@ -174,26 +121,14 @@ async function loadResults() {
         const data = await insightsResponse.json();
         const insights = data.insights;
         
-        // Update score summary
-        updateScoreSummary(insights);
+        // Update metrics
+        updateMetrics(insights);
         
-        // Update learning style
-        updateLearningStyle(insights.learning_style, insights.style_narrative);
+        // Update confidence matrix
+        updateConfidenceMatrix(insights);
         
-        // Display confidence insights
-        displayConfidenceInsights(insights.gaps);
-        
-        // Display learning patterns
-        displayPatterns(insights.learning_patterns || {});
-        
-        // Display knowledge areas
-        displayKnowledgeAreas(insights.gaps);
-        
-        // Display reflection prompts
-        displayReflectionPrompts(insights.reflection_prompts || []);
-        
-        // Display improvement suggestions
-        displaySuggestions(insights.improvement_suggestions || []);
+        // Load AI-powered insights (Ollama)
+        loadAIInsights(insights);
         
     } catch (error) {
         console.error('Error loading results:', error);
@@ -201,568 +136,51 @@ async function loadResults() {
     }
 }
 
-function updateScoreSummary(insights) {
-    // Update accuracy with separated number and unit
-    const accuracyEl = document.getElementById('accuracy');
-    const accuracyVal = Math.round(insights.accuracy);
-    accuracyEl.innerHTML = `<span class="metric-number">${accuracyVal}</span><span class="metric-unit">%</span>`;
-    
-    // Update curiosity score
-    const curiosityEl = document.getElementById('curiosityScore');
-    curiosityEl.innerHTML = `<span class="metric-number">${Math.round(insights.curiosity_score || 0)}</span>`;
-    
-    // Update correct count
-    const correctEl = document.getElementById('correctCount');
-    correctEl.innerHTML = `<span class="metric-number">${insights.correct_responses}</span><span class="metric-separator">/</span><span class="metric-total">${insights.total_responses}</span>`;
-    
-    // Update avg confidence
-    const confEl = document.getElementById('avgConfidence');
-    confEl.innerHTML = `<span class="metric-number">${Math.round(insights.avg_confidence)}</span><span class="metric-unit">%</span>`;
-    
-    // Update calibration
-    const calibEl = document.getElementById('calibrationScore');
-    calibEl.innerHTML = `<span class="metric-number">${Math.round(insights.calibration_score || 0)}</span><span class="metric-unit">%</span>`;
-    
-    // Time stats
+function updateMetrics(insights) {
+    const accuracy = Math.round(insights.accuracy);
+    const confidence = Math.round(insights.avg_confidence);
+    const calibration = Math.round(insights.calibration_score || 0);
     const timeStats = insights.time_stats || {};
-    const avgTime = timeStats.avg_time_per_question || 0;
-    const timeEl = document.getElementById('avgTime');
-    timeEl.innerHTML = `<span class="metric-number">${avgTime.toFixed(1)}</span><span class="metric-unit">s</span>`;
+    const avgTime = (timeStats.avg_time_per_question || 0).toFixed(1);
     
-    // Display confidence breakdown
-    displayConfidenceBreakdown(insights);
+    document.getElementById('accuracy').textContent = accuracy + '%';
+    document.getElementById('avgConfidence').textContent = confidence + '%';
+    document.getElementById('calibrationScore').textContent = calibration + '%';
+    document.getElementById('avgTime').textContent = avgTime + 's';
 }
 
-function displayConfidenceBreakdown(insights) {
-    const container = document.getElementById('confidenceBreakdown');
-    const dist = insights.confidence_distribution || {};
+function updateConfidenceMatrix(insights) {
+    const gaps = insights.gaps || {};
     const perf = insights.confidence_performance || {};
-    const timeStats = insights.time_stats || {};
     
-    const total = (dist.low || 0) + (dist.medium || 0) + (dist.high || 0);
-    if (total === 0) {
-        container.innerHTML = `
-            <div class="analysis-empty">
-                <p class="empty-text">Complete a quiz to see your confidence analysis</p>
-            </div>
-        `;
-        return;
+    // Calculate matrix values
+    const highCorrect = perf.high_conf_correct || 0;
+    const highIncorrect = (perf.high_conf_questions || 0) - highCorrect;
+    const lowCorrect = gaps.underconfident_successes?.length || 0;
+    const lowIncorrect = (perf.low_conf_questions || 0) - (perf.low_conf_correct || 0);
+    
+    // Update matrix cells
+    document.getElementById('highCorrect').textContent = highCorrect || '—';
+    document.getElementById('highIncorrect').textContent = highIncorrect || '—';
+    document.getElementById('lowCorrect').textContent = lowCorrect || '—';
+    document.getElementById('lowIncorrect').textContent = lowIncorrect || '—';
+    
+    // Generate insight text
+    const overconfident = gaps.overconfident_errors?.length || 0;
+    const underconfident = gaps.underconfident_successes?.length || 0;
+    
+    let insightText = '';
+    if (overconfident > 0 && underconfident > 0) {
+        insightText = `Mixed calibration: ${overconfident} overconfident error${overconfident > 1 ? 's' : ''}, ${underconfident} underconfident success${underconfident > 1 ? 'es' : ''}.`;
+    } else if (overconfident > 0) {
+        insightText = `Overconfidence detected: ${overconfident} high-confidence error${overconfident > 1 ? 's' : ''}. Consider slowing down on questions you feel certain about.`;
+    } else if (underconfident > 0) {
+        insightText = `Hidden knowledge: ${underconfident} correct answer${underconfident > 1 ? 's' : ''} despite low confidence. Trust your instincts more.`;
+    } else {
+        insightText = 'Well-calibrated: Your confidence aligns with your actual knowledge.';
     }
     
-    const lowPct = Math.round((dist.low || 0) / total * 100);
-    const medPct = Math.round((dist.medium || 0) / total * 100);
-    const highPct = Math.round((dist.high || 0) / total * 100);
-    
-    let html = `
-        <div class="confidence-grid">
-            <!-- Confidence Distribution Bar -->
-            <div class="confidence-bar-section">
-                <h4 class="subsection-label">Confidence Distribution</h4>
-                <div class="stacked-bar">
-                    <div class="bar-segment low" style="width: ${lowPct}%;" title="Low confidence: ${dist.low || 0} questions">
-                        ${lowPct > 15 ? lowPct + '%' : ''}
-                    </div>
-                    <div class="bar-segment medium" style="width: ${medPct}%;" title="Medium confidence: ${dist.medium || 0} questions">
-                        ${medPct > 15 ? medPct + '%' : ''}
-                    </div>
-                    <div class="bar-segment high" style="width: ${highPct}%;" title="High confidence: ${dist.high || 0} questions">
-                        ${highPct > 15 ? highPct + '%' : ''}
-                    </div>
-                </div>
-                <div class="bar-legend">
-                    <span class="legend-item"><span class="legend-color low"></span> Low <span class="legend-count">${dist.low || 0}</span></span>
-                    <span class="legend-item"><span class="legend-color medium"></span> Medium <span class="legend-count">${dist.medium || 0}</span></span>
-                    <span class="legend-item"><span class="legend-color high"></span> High <span class="legend-count">${dist.high || 0}</span></span>
-                </div>
-            </div>
-            
-            <!-- Performance by Confidence -->
-            <div class="confidence-perf-section">
-                <h4 class="subsection-label">Accuracy by Confidence Level</h4>
-                <div class="perf-cards">
-                    <div class="perf-card">
-                        <div class="perf-label">High Confidence</div>
-                        <div class="perf-value ${perf.high_confidence_accuracy >= 70 ? 'good' : perf.high_confidence_accuracy >= 50 ? 'moderate' : 'poor'}">
-                            ${Math.round(perf.high_confidence_accuracy || 0)}%
-                        </div>
-                        <div class="perf-sublabel">${perf.high_conf_questions || 0} questions</div>
-                        ${perf.high_confidence_accuracy < 60 && perf.high_conf_questions > 0 ? 
-                            '<div class="perf-alert">Overconfidence detected</div>' : ''}
-                    </div>
-                    <div class="perf-card">
-                        <div class="perf-label">Low Confidence</div>
-                        <div class="perf-value ${perf.low_confidence_accuracy >= 50 ? 'good' : 'moderate'}">
-                            ${Math.round(perf.low_confidence_accuracy || 0)}%
-                        </div>
-                        <div class="perf-sublabel">${perf.low_conf_questions || 0} questions</div>
-                        ${perf.low_confidence_accuracy >= 50 && perf.low_conf_questions > 0 ? 
-                            '<div class="perf-positive">Hidden knowledge</div>' : ''}
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Time Analysis -->
-            <div class="time-analysis-section">
-                <h4>Time Analysis</h4>
-                <div class="time-stats">
-                    <div class="time-stat">
-                        <span class="time-icon">⏱️</span>
-                        <div class="time-info">
-                            <span class="time-value">${(timeStats.avg_time_per_question || 0).toFixed(1)}s</span>
-                            <span class="time-label">Average per question</span>
-                        </div>
-                    </div>
-                    <div class="time-stat">
-                        <span class="time-icon correct">✓</span>
-                        <div class="time-info">
-                            <span class="time-value">${(timeStats.avg_time_correct || 0).toFixed(1)}s</span>
-                            <span class="time-label">When correct</span>
-                        </div>
-                    </div>
-                    <div class="time-stat">
-                        <span class="time-icon incorrect">✗</span>
-                        <div class="time-info">
-                            <span class="time-value">${(timeStats.avg_time_incorrect || 0).toFixed(1)}s</span>
-                            <span class="time-label">When incorrect</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    container.innerHTML = html;
-}
-
-function updateLearningStyle(style, narrative) {
-    const styleData = {
-        'exploratory': {
-            icon: '🔍',
-            color: 'exploratory',
-            description: 'You demonstrate high curiosity and willingness to explore uncertain territory'
-        },
-        'analytical': {
-            icon: '🎯',
-            color: 'analytical',
-            description: 'You approach learning methodically, thinking through each question carefully'
-        },
-        'calibrated': {
-            icon: '⚖️',
-            color: 'calibrated',
-            description: 'You show excellent self-awareness — your confidence aligns with your knowledge'
-        },
-        'confident': {
-            icon: '💪',
-            color: 'confident',
-            description: 'You trust your knowledge and make decisions with conviction'
-        }
-    };
-    
-    const data = styleData[style] || styleData['analytical'];
-    const card = document.getElementById('styleBadge');
-    
-    // Update the icon
-    document.getElementById('styleIcon').innerHTML = `<span class="style-icon-inner">${data.icon}</span>`;
-    
-    // Update the name with proper capitalization
-    const styleName = (style || 'analytical').charAt(0).toUpperCase() + (style || 'analytical').slice(1);
-    document.getElementById('styleName').textContent = styleName;
-    
-    // Update description - remove placeholder class
-    const descEl = document.getElementById('styleDescription');
-    descEl.innerHTML = narrative || data.description;
-    descEl.classList.remove('placeholder-text');
-    
-    // Add style-specific class for potential color coding
-    card.className = 'learning-style-card loaded ' + (data.color || '');
-}
-
-function displayConfidenceInsights(gaps) {
-    const container = document.getElementById('confidenceInsights');
-    const overconfident = gaps.overconfident_errors || [];
-    const underconfident = gaps.underconfident_successes || [];
-    const wellCalibrated = overconfident.length === 0 && underconfident.length === 0;
-    
-    let html = '';
-    
-    // Overconfidence card
-    if (overconfident.length > 0) {
-        html += `
-            <div class="insight-card warning">
-                <div class="insight-header">
-                    <span class="insight-indicator warning"></span>
-                    <span class="insight-label">Overconfidence</span>
-                </div>
-                <div class="insight-body">
-                    <div class="insight-stat">${overconfident.length}</div>
-                    <p class="insight-text">
-                        Questions answered incorrectly despite high confidence. 
-                        These areas might benefit from deeper review.
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Underconfidence card
-    if (underconfident.length > 0) {
-        html += `
-            <div class="insight-card success">
-                <div class="insight-header">
-                    <span class="insight-indicator success"></span>
-                    <span class="insight-label">Hidden Strengths</span>
-                </div>
-                <div class="insight-body">
-                    <div class="insight-stat">${underconfident.length}</div>
-                    <p class="insight-text">
-                        Questions answered correctly despite low confidence. 
-                        You know more than you think — trust yourself.
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Well-calibrated card
-    if (wellCalibrated) {
-        html += `
-            <div class="insight-card neutral">
-                <div class="insight-header">
-                    <span class="insight-indicator neutral"></span>
-                    <span class="insight-label">Well-Calibrated</span>
-                </div>
-                <div class="insight-body">
-                    <p class="insight-text">
-                        Your confidence levels align well with your actual knowledge. 
-                        This shows strong self-awareness and metacognition.
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Guessing behavior
-    const guessingBehavior = gaps.low_confidence_responses || [];
-    if (guessingBehavior.length > 2) {
-        html += `
-            <div class="insight-card info">
-                <div class="insight-header">
-                    <span class="insight-indicator info"></span>
-                    <span class="insight-label">Knowledge Gaps</span>
-                </div>
-                <div class="insight-body">
-                    <div class="insight-stat">${guessingBehavior.length}</div>
-                    <p class="insight-text">
-                        Responses with very low confidence. These represent areas 
-                        where additional study would be most valuable.
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // If no insights available
-    if (!html) {
-        html = `
-            <div class="insight-card neutral">
-                <div class="insight-body">
-                    <p class="insight-text">
-                        Complete more questions to receive detailed confidence insights.
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    container.innerHTML = html;
-}
-
-function displayPatterns(patterns) {
-    const container = document.getElementById('patternsGrid');
-    
-    if (!patterns || Object.keys(patterns).length === 0) {
-        container.innerHTML = '<div class="empty-section"><p class="empty-text">Complete a quiz to see your learning patterns</p></div>';
-        return;
-    }
-    
-    const speedIcons = { quick: '⚡', moderate: '⏱️', deliberate: '🐢' };
-    const approachIcons = { bold: '🎲', calculated: '🎯', cautious: '🛡️', systematic: '📋' };
-    
-    let html = '';
-    
-    // Thinking speed pattern
-    if (patterns.thinking_speed) {
-        html += `
-            <div class="pattern-card">
-                <div class="pattern-icon">${speedIcons[patterns.thinking_speed] || '⏱️'}</div>
-                <div class="pattern-content">
-                    <div class="pattern-label">Thinking Speed</div>
-                    <div class="pattern-value">${capitalizeFirst(patterns.thinking_speed)}</div>
-                    <p class="pattern-description">${patterns.speed_insight || 'Processing information at your own pace'}</p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Learning approach pattern
-    if (patterns.learning_approach) {
-        html += `
-            <div class="pattern-card">
-                <div class="pattern-icon">${approachIcons[patterns.learning_approach] || '🎯'}</div>
-                <div class="pattern-content">
-                    <div class="pattern-label">Learning Approach</div>
-                    <div class="pattern-value">${capitalizeFirst(patterns.learning_approach)}</div>
-                    <p class="pattern-description">${patterns.approach_insight || 'Your unique problem-solving style'}</p>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Consistency pattern
-    if (patterns.consistency_score !== undefined) {
-        const consistency = patterns.consistency_score;
-        const consistencyIcon = consistency > 80 ? '🎯' : consistency > 60 ? '📊' : '🔄';
-        html += `
-            <div class="pattern-card">
-                <div class="pattern-icon">${consistencyIcon}</div>
-                <div class="pattern-content">
-                    <div class="pattern-label">Consistency</div>
-                    <div class="pattern-value">${Math.round(consistency)}%</div>
-                    <p class="pattern-description">
-                        ${consistency > 80 ? 'Highly consistent responses' : 
-                          consistency > 60 ? 'Moderately consistent pattern' : 
-                          'Variable approach — exploring different strategies'}
-                    </p>
-                </div>
-            </div>
-        `;
-    }
-    
-    container.innerHTML = html;
-}
-
-function capitalizeFirst(str) {
-    return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-}
-
-function displayLearningMoments(moments) {
-    const container = document.getElementById('learningMoments');
-    
-    if (!moments || moments.length === 0) {
-        container.classList.add('hidden');
-        return;
-    }
-    
-    container.classList.remove('hidden');
-    
-    let html = '<h2 class="moments-title">✨ Key Learning Moments</h2>';
-    html += '<div class="moments-grid">';
-    
-    moments.forEach(moment => {
-        html += `
-            <div class="moment-card ${moment.type}">
-                <div class="moment-header">
-                    <span class="moment-title">${moment.title}</span>
-                </div>
-                <p class="moment-description">${moment.description}</p>
-                <p class="moment-lesson"><strong>Lesson:</strong> ${moment.lesson}</p>
-            </div>
-        `;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-}
-
-function displayKnowledgeAreas(gaps) {
-    const container = document.getElementById('knowledgeAreas');
-    
-    if (!gaps || !gaps.knowledge_areas) {
-        container.innerHTML = '<p class="no-data">No knowledge areas analyzed</p>';
-        return;
-    }
-    
-    const areas = gaps.knowledge_areas;
-    
-    if (Object.keys(areas).length === 0) {
-        container.innerHTML = '<p class="no-data">No categories available</p>';
-        return;
-    }
-    
-    let html = '<div class="knowledge-areas-grid">';
-    
-    // Sort areas by accuracy (weakest first to highlight growth opportunities)
-    const sortedAreas = Object.entries(areas).sort((a, b) => {
-        const accA = (a[1].correct / a[1].total) * 100;
-        const accB = (b[1].correct / b[1].total) * 100;
-        return accA - accB;
-    });
-    
-    for (const [category, stats] of sortedAreas) {
-        const accuracy = (stats.correct / stats.total) * 100;
-        const strengthLevel = accuracy >= 80 ? 'strong' : accuracy >= 60 ? 'moderate' : 'developing';
-        const avgConf = stats.avg_confidence || 0;
-        const avgTime = stats.avg_time || 0;
-        
-        // Check for calibration issues
-        const isOverconfident = avgConf > 70 && accuracy < 60;
-        const isUnderconfident = avgConf < 40 && accuracy >= 70;
-        
-        html += `
-            <div class="knowledge-area-item ${strengthLevel}">
-                <div class="area-header">
-                    <span class="area-name">${category}</span>
-                    <span class="area-accuracy ${strengthLevel}">${Math.round(accuracy)}%</span>
-                </div>
-                <div class="area-bar-container">
-                    <div class="area-bar">
-                        <div class="area-bar-fill ${strengthLevel}" style="width: ${accuracy}%"></div>
-                    </div>
-                </div>
-                <div class="area-details">
-                    <span class="detail-item">
-                        <span class="detail-icon">✓</span>
-                        ${stats.correct}/${stats.total} correct
-                    </span>
-                    <span class="detail-item">
-                        <span class="detail-icon">💭</span>
-                        ${Math.round(avgConf)}% confidence
-                    </span>
-                    <span class="detail-item">
-                        <span class="detail-icon">⏱️</span>
-                        ${avgTime.toFixed(1)}s avg
-                    </span>
-                </div>
-                <div class="area-tags">
-                    ${accuracy < 60 ? '<span class="area-tag growth">Growth opportunity</span>' : ''}
-                    ${accuracy >= 80 ? '<span class="area-tag strength">Strength area</span>' : ''}
-                    ${isOverconfident ? '<span class="area-tag warning">Needs calibration</span>' : ''}
-                    ${isUnderconfident ? '<span class="area-tag positive">Hidden knowledge!</span>' : ''}
-                </div>
-            </div>
-        `;
-    }
-    
-    html += '</div>';
-    
-    // Add difficulty breakdown if available
-    if (gaps.difficulty_analysis && Object.keys(gaps.difficulty_analysis).length > 0) {
-        html += '<h4 class="subsection-title">Performance by Difficulty</h4>';
-        html += '<div class="difficulty-breakdown">';
-        
-        const difficultyOrder = ['easy', 'medium', 'hard'];
-        const difficultyIcons = { easy: '🟢', medium: '🟡', hard: '🔴' };
-        
-        for (const difficulty of difficultyOrder) {
-            const stats = gaps.difficulty_analysis[difficulty];
-            if (stats && stats.total > 0) {
-                const diffAccuracy = (stats.correct / stats.total) * 100;
-                html += `
-                    <div class="difficulty-item">
-                        <span class="difficulty-icon">${difficultyIcons[difficulty] || '⚪'}</span>
-                        <span class="difficulty-name">${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</span>
-                        <span class="difficulty-stats">${stats.correct}/${stats.total}</span>
-                        <span class="difficulty-accuracy">${Math.round(diffAccuracy)}%</span>
-                    </div>
-                `;
-            }
-        }
-        
-        html += '</div>';
-    }
-    
-    container.innerHTML = html;
-}
-
-function displayReflectionPrompts(prompts) {
-    const section = document.getElementById('reflectionSection');
-    const container = document.getElementById('reflectionPrompts');
-    
-    if (!prompts || prompts.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
-    
-    section.style.display = 'block';
-    
-    let html = '';
-    
-    prompts.forEach((prompt, idx) => {
-        const question = typeof prompt === 'string' ? prompt : (prompt.question || prompt);
-        const purpose = prompt.purpose || '';
-        
-        html += `
-            <div class="reflection-prompt">
-                <div class="prompt-number">${idx + 1}</div>
-                <div class="prompt-content">
-                    <div class="prompt-question">${question}</div>
-                    ${purpose ? `<div class="prompt-purpose">${purpose}</div>` : ''}
-                    <textarea 
-                        class="prompt-textarea" 
-                        placeholder="Take a moment to write your thoughts..."
-                        rows="3"
-                    ></textarea>
-                </div>
-            </div>
-        `;
-    });
-    
-    container.innerHTML = html;
-}
-
-function displaySuggestions(suggestions) {
-    const section = document.getElementById('suggestionsSection');
-    const container = document.getElementById('suggestionsList');
-    
-    if (!suggestions || suggestions.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
-    
-    section.style.display = 'block';
-    
-    let html = '';
-    
-    suggestions.forEach((suggestion, idx) => {
-        html += `
-            <div class="suggestion-item">
-                <div class="suggestion-number">${idx + 1}</div>
-                <div class="suggestion-text">${suggestion}</div>
-            </div>
-        `;
-    });
-    
-    container.innerHTML = html;
-}
-
-function saveReflections() {
-    const textareas = document.querySelectorAll('.prompt-textarea');
-    const reflections = Array.from(textareas).map(ta => ta.value).filter(v => v.trim());
-    
-    if (reflections.length === 0) {
-        alert('Please write at least one reflection before saving.');
-        return;
-    }
-    
-    // Save to localStorage
-    const data = {
-        attemptId,
-        reflections,
-        timestamp: new Date().toISOString()
-    };
-    
-    localStorage.setItem(`reflections_${attemptId}`, JSON.stringify(data));
-    
-    // Show success message
-    const btn = event.target;
-    const originalText = btn.textContent;
-    btn.textContent = '✓ Saved!';
-    btn.style.background = 'var(--color-success)';
-    
-    setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-    }, 2000);
+    document.getElementById('confidenceInsight').innerHTML = `<span class="insight-text">${insightText}</span>`;
 }
 
 function showError() {
@@ -784,5 +202,200 @@ function showError() {
 
 // Load results on page load
 loadResults();
+
+// ============================================================================
+// AI INSIGHTS (Ollama Integration)
+// ============================================================================
+
+async function loadAIInsights(insights) {
+    // Check if AI service is available
+    try {
+        const statusResponse = await fetch('/api/insights/status');
+        const status = await statusResponse.json();
+        
+        if (!status.ready) {
+            showAIUnavailable();
+            return;
+        }
+    } catch (error) {
+        showAIUnavailable();
+        return;
+    }
+    
+    // Build data summary for AI analysis
+    const dataSummary = buildDataSummary(insights);
+    
+    // Load all AI insights in parallel
+    await Promise.all([
+        loadPatternInsight(dataSummary),
+        loadCalibrationInsight(dataSummary),
+        loadSummaryInsight(dataSummary)
+    ]);
+}
+
+function buildDataSummary(insights) {
+    const accuracy = Math.round(insights.accuracy || 0);
+    const correct = insights.correct_responses || 0;
+    const total = insights.total_responses || 0;
+    const avgConf = Math.round(insights.avg_confidence || 0);
+    const calibration = Math.round(insights.calibration_score || 0);
+    const timeStats = insights.time_stats || {};
+    const avgTime = (timeStats.avg_time_per_question || 0).toFixed(1);
+    const confPerf = insights.confidence_performance || {};
+    const gaps = insights.gaps || {};
+    const overconfident = (gaps.overconfident_errors || []).length;
+    const underconfident = (gaps.underconfident_successes || []).length;
+    const style = insights.learning_style || 'unknown';
+    
+    return {
+        full: `Score: ${correct}/${total} (${accuracy}%). Avg confidence: ${avgConf}%. Calibration: ${calibration}%. Avg time: ${avgTime}s. Learning style: ${style}. High-confidence accuracy: ${Math.round(confPerf.high_confidence_accuracy || 0)}%. Overconfident errors: ${overconfident}. Underconfident successes: ${underconfident}.`,
+        pattern: `${total} questions answered. Accuracy: ${accuracy}%. Avg response time: ${avgTime}s. Time on correct: ${(timeStats.avg_time_correct || 0).toFixed(1)}s. Time on incorrect: ${(timeStats.avg_time_incorrect || 0).toFixed(1)}s. Learning style detected: ${style}.`,
+        calibration: `${total} questions. Confidence avg: ${avgConf}%. Accuracy: ${accuracy}%. High-confidence questions: ${confPerf.high_conf_questions || 0} with ${Math.round(confPerf.high_confidence_accuracy || 0)}% accuracy. Overconfident errors: ${overconfident}. Underconfident correct: ${underconfident}.`
+    };
+}
+
+async function loadPatternInsight(dataSummary) {
+    const container = document.getElementById('aiPatternContent');
+    try {
+        const response = await fetch('/api/insights/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                data: dataSummary.pattern,
+                type: 'pattern'
+            })
+        });
+        
+        if (!response.ok) throw new Error('API error');
+        
+        const result = await response.json();
+        container.innerHTML = formatReportContent(result.insight);
+        container.parentElement.classList.add('loaded');
+    } catch (error) {
+        console.error('Pattern insight error:', error);
+        container.innerHTML = '<p class="report-error">Unable to generate analysis</p>';
+    }
+}
+
+async function loadCalibrationInsight(dataSummary) {
+    const container = document.getElementById('aiCalibrationContent');
+    try {
+        const response = await fetch('/api/insights/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                data: dataSummary.calibration,
+                type: 'calibration'
+            })
+        });
+        
+        if (!response.ok) throw new Error('API error');
+        
+        const result = await response.json();
+        container.innerHTML = formatReportContent(result.insight);
+        container.parentElement.classList.add('loaded');
+    } catch (error) {
+        console.error('Calibration insight error:', error);
+        container.innerHTML = '<p class="report-error">Unable to generate assessment</p>';
+    }
+}
+
+async function loadSummaryInsight(dataSummary) {
+    const container = document.getElementById('aiSummaryContent');
+    try {
+        const response = await fetch('/api/insights/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                data: dataSummary.full,
+                type: 'summary'
+            })
+        });
+        
+        if (!response.ok) throw new Error('API error');
+        
+        const result = await response.json();
+        container.innerHTML = formatReportContent(result.insight);
+        container.parentElement.classList.add('loaded');
+    } catch (error) {
+        console.error('Summary insight error:', error);
+        container.innerHTML = '<p class="report-error">Unable to generate summary</p>';
+    }
+}
+
+function formatReportContent(text) {
+    if (!text) return '<p class="report-text">No data available.</p>';
+    
+    // Parse the text into structured sections
+    let html = '<div class="report-content">';
+    
+    // Split by line breaks and process
+    const lines = text.split('\n').filter(line => line.trim());
+    
+    lines.forEach(line => {
+        const trimmed = line.trim();
+        
+        // Detect status labels (e.g., "Calibration Status: Overconfident")
+        if (trimmed.includes(':') && trimmed.split(':')[0].length < 30) {
+            const [label, ...valueParts] = trimmed.split(':');
+            const value = valueParts.join(':').trim();
+            
+            // Check if value contains status keywords
+            const statusClass = getStatusClass(value);
+            
+            if (statusClass) {
+                html += `<div class="report-finding">
+                    <span class="report-finding-label">${label.trim()}</span>
+                    <span class="report-status ${statusClass}">${value}</span>
+                </div>`;
+            } else if (label.trim().length > 0 && value.length > 0) {
+                html += `<div class="report-finding">
+                    <span class="report-finding-label">${label.trim()}</span>
+                    <span class="report-finding-value">${value}</span>
+                </div>`;
+            } else {
+                html += `<p class="report-text">${trimmed}</p>`;
+            }
+        }
+        // Detect bullet points
+        else if (trimmed.startsWith('•') || trimmed.startsWith('-') || trimmed.startsWith('*')) {
+            const bulletText = trimmed.replace(/^[•\-\*]\s*/, '');
+            html += `<div class="report-bullet">${bulletText}</div>`;
+        }
+        // Detect numbered items
+        else if (/^\d+[\.\)]\s/.test(trimmed)) {
+            const itemText = trimmed.replace(/^\d+[\.\)]\s*/, '');
+            html += `<div class="report-bullet">${itemText}</div>`;
+        }
+        // Regular paragraph
+        else {
+            html += `<p class="report-text">${trimmed}</p>`;
+        }
+    });
+    
+    html += '</div>';
+    return html;
+}
+
+function getStatusClass(text) {
+    const lower = text.toLowerCase();
+    if (lower.includes('overconfident') || lower.includes('over-confident')) return 'status-warning';
+    if (lower.includes('underconfident') || lower.includes('under-confident')) return 'status-info';
+    if (lower.includes('well-calibrated') || lower.includes('well calibrated') || lower.includes('calibrated')) return 'status-success';
+    if (lower.includes('quick') || lower.includes('fast')) return 'status-neutral';
+    if (lower.includes('deliberate') || lower.includes('slow')) return 'status-neutral';
+    if (lower.includes('moderate') || lower.includes('balanced')) return 'status-success';
+    return null;
+}
+
+function showAIUnavailable() {
+    const container = document.getElementById('aiInsightsContainer');
+    container.innerHTML = `
+        <div class="report-unavailable">
+            <p class="report-unavailable-text">Cognitive analysis is currently unavailable</p>
+            <p class="report-unavailable-subtext">The analysis service could not be reached</p>
+        </div>
+    `;
+}
 </script>
 {% endblock %}

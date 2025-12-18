@@ -7,3 +7,189 @@
 2025-12-18 10:48:03.623 | INFO     | test | <string>:7 | <module> | Test message
 2025-12-18 10:48:03.623 | WARNING  | test | <string>:8 | <module> | Warning message
 2025-12-18 10:48:03.623 | ERROR    | test | <string>:9 | <module> | Error message
+2025-12-18 11:18:02.231 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-18 11:18:02.231 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:07:39.566 | WARNING  | app.services.llm | llm.py:238 | sanitize_input | Potential prompt injection detected
+2025-12-19 01:18:56.771 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:18:56.771 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:21:48.276 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:21:48.276 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:22:11.444 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 01:22:19.528 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:22:19.528 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:22:35.778 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 01:22:45.216 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:22:45.216 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:22:47.809 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:22:53.538 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:22:53.539 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:23:17.108 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 01:23:18.292 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:23:18.292 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:23:21.062 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:23:24.053 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:23:24.053 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:23:36.123 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:23:39.379 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:23:39.379 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:24:11.716 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:24:17.753 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:24:17.753 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:24:17.844 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:24:23.255 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:24:27.092 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:24:27.092 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:24:33.307 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:24:33.308 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:24:39.638 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:24:39.638 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 01:24:39.639 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:29:56.180 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:29:56.182 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:29:56.182 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:30:05.424 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:05.424 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:30:11.479 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:11.479 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:30:17.890 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:17.890 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:30:35.287 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:30:35.294 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:30:35.299 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:30:40.797 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:40.797 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:30:48.280 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:48.280 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:30:53.693 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:30:53.693 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:37:41.285 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:37:41.286 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:37:41.287 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:37:51.386 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:37:51.386 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:37:57.649 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:37:57.649 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:38:03.883 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:38:03.883 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:38:50.572 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:38:50.573 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:38:50.574 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:39:00.938 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:39:00.938 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:39:06.465 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:39:06.465 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:39:12.094 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:39:12.095 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:40:55.037 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 01:40:55.037 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 01:42:47.494 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:42:47.499 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:42:47.500 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:42:54.220 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:42:54.220 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:42:59.704 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:42:59.704 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:43:04.674 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:43:04.674 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:48:22.388 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:48:22.389 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:48:22.390 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:48:31.802 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:48:31.802 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:48:38.233 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:48:38.233 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:48:43.008 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:48:43.008 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:58:12.860 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:58:12.861 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:58:12.862 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 01:58:24.809 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:58:24.809 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:58:31.198 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:58:31.198 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 01:58:37.163 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 01:58:37.163 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:01:36.586 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:01:36.587 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:01:36.587 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:01:36.588 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:01:36.588 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:01:36.588 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:01:36.589 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:01:36.589 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:01:36.589 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:06:14.130 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:06:14.131 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:06:14.137 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:06:23.734 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:06:23.734 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:06:31.676 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:06:31.676 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:06:38.487 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:06:38.487 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:10:13.355 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 02:10:13.355 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 02:10:33.053 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:10:41.184 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:10:41.184 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:11:28.236 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:11:28.237 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:11:28.237 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:12:33.253 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 02:17:15.356 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 02:17:15.356 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 02:19:57.334 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 02:23:21.787 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 02:23:21.787 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 02:23:32.238 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:32.244 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:32.245 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:41.041 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:23:41.041 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:23:48.265 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:23:48.265 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:23:50.460 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:50.460 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:23:50.460 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:23:50.461 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:50.461 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:23:50.461 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:23:50.461 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:23:54.210 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:23:54.210 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:23:59.100 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:23:59.100 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:24:17.070 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:24:17.072 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:24:17.072 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:24:23.810 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:24:23.810 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:24:30.293 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:24:30.293 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:24:37.463 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:24:37.463 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:25:35.468 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:25:35.468 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:25:35.469 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:25:35.469 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:25:35.469 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:25:35.470 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:25:35.470 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:25:35.470 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 02:25:35.470 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:27:34.981 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 02:27:58.579 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 02:27:58.579 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 02:28:14.313 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:28:14.319 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:28:14.320 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:28:22.441 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:28:22.441 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:28:28.975 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:28:28.976 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:28:34.283 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:28:34.283 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:29:11.847 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 02:29:19.770 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 02:29:19.770 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 02:32:34.371 | INFO     | app.main | main.py:31 | lifespan | Application shutdown

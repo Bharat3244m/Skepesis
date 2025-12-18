@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.exceptions import RequestValidationError
 from contextlib import asynccontextmanager
-from app.routers import questions, attempts, students, trivia
+from app.routers import questions, attempts, students, trivia, llm
 from app.config import get_settings
 from app.initial_data import init_db
 from app.logger import get_logger, setup_app_logging
@@ -73,6 +73,7 @@ app.include_router(questions.router)
 app.include_router(attempts.router)
 app.include_router(students.router)
 app.include_router(trivia.router)
+app.include_router(llm.router)
 
 # Template routes
 @app.get("/", response_class=HTMLResponse)
@@ -115,6 +116,16 @@ async def dashboard(request: Request):
         return templates.TemplateResponse("dashboard.html", {"request": request})
     except Exception as e:
         logger.error(f"Error rendering dashboard: {e}")
+        raise HTTPException(status_code=500, detail="Failed to load page")
+
+
+@app.get("/curiosity", response_class=HTMLResponse)
+async def curiosity_solver(request: Request):
+    """Curiosity Solver - analytical question exploration"""
+    try:
+        return templates.TemplateResponse("curiosity.html", {"request": request})
+    except Exception as e:
+        logger.error(f"Error rendering curiosity solver: {e}")
         raise HTTPException(status_code=500, detail="Failed to load page")
 
 

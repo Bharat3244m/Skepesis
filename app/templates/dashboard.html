@@ -1,42 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Learning History — Skepesis{% endblock %}
+{% block title %}History — Skepesis{% endblock %}
 
 {% block content %}
 <div class="dashboard-container">
     <div class="dashboard-header">
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">History</span>
-        </div>
-        <h1 class="dashboard-title">Learning History</h1>
-        <p class="dashboard-subtitle">Look up your quiz history and track progress over time</p>
+        <h1 class="dashboard-title">History</h1>
+        <p class="dashboard-subtitle">Your quiz sessions and progress</p>
     </div>
     
     <!-- Student Lookup Section -->
     <div class="lookup-section">
         <div class="lookup-card">
-            <div class="lookup-icon">🔍</div>
-            <div class="lookup-content">
-                <h2 class="lookup-title">Find Your History</h2>
-                <p class="lookup-description">Enter your name to see all your quiz sessions and detailed insights</p>
-                <form class="lookup-form" onsubmit="lookupStudent(event)">
-                    <div class="lookup-input-group">
-                        <input 
-                            type="text" 
-                            id="studentNameSearch" 
-                            class="form-input lookup-input" 
-                            placeholder="Enter your name..."
-                            autocomplete="off"
-                        >
-                        <button type="submit" class="btn-primary">
-                            Search
-                        </button>
-                    </div>
-                    <div class="lookup-suggestions" id="lookupSuggestions"></div>
-                </form>
-            </div>
+            <form class="lookup-form" onsubmit="lookupStudent(event)">
+                <div class="lookup-input-group">
+                    <input 
+                        type="text" 
+                        id="studentNameSearch" 
+                        class="form-input lookup-input" 
+                        placeholder="Enter your name to find history..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="btn-primary">
+                        Search
+                    </button>
+                </div>
+                <div class="lookup-suggestions" id="lookupSuggestions"></div>
+            </form>
         </div>
     </div>
     
@@ -57,36 +47,24 @@
         
         <!-- Student Stats Overview -->
         <div class="dashboard-stats">
-            <div class="stat-card">
-                <div class="stat-icon">📚</div>
-                <div class="stat-content">
-                    <div class="stat-value" id="totalAttempts">0</div>
-                    <div class="stat-label">Total Sessions</div>
-                </div>
+            <div class="metric">
+                <span class="metric-value" id="totalAttempts">0</span>
+                <span class="metric-label">Total Sessions</span>
             </div>
             
-            <div class="stat-card">
-                <div class="stat-icon">🎯</div>
-                <div class="stat-content">
-                    <div class="stat-value" id="avgAccuracy">0%</div>
-                    <div class="stat-label">Avg Accuracy</div>
-                </div>
+            <div class="metric featured">
+                <span class="metric-value" id="avgAccuracy">0%</span>
+                <span class="metric-label">Avg Accuracy</span>
             </div>
             
-            <div class="stat-card">
-                <div class="stat-icon">🔍</div>
-                <div class="stat-content">
-                    <div class="stat-value" id="avgCuriosity">0</div>
-                    <div class="stat-label">Avg Curiosity</div>
-                </div>
+            <div class="metric">
+                <span class="metric-value" id="avgCuriosity">0</span>
+                <span class="metric-label">Avg Curiosity</span>
             </div>
             
-            <div class="stat-card">
-                <div class="stat-icon">📈</div>
-                <div class="stat-content">
-                    <div class="stat-value" id="totalQuestions">0</div>
-                    <div class="stat-label">Questions Answered</div>
-                </div>
+            <div class="metric">
+                <span class="metric-value" id="totalQuestions">0</span>
+                <span class="metric-label">Questions</span>
             </div>
         </div>
         
@@ -101,15 +79,7 @@
         <!-- Sessions List -->
         <div class="attempts-section">
             <div class="section-header">
-                <h3 class="section-title">All Sessions</h3>
-                <div class="view-toggle">
-                    <button class="toggle-btn active" data-view="cards" onclick="switchView('cards')">
-                        <span>📋</span> Cards
-                    </button>
-                    <button class="toggle-btn" data-view="table" onclick="switchView('table')">
-                        <span>📊</span> Table
-                    </button>
-                </div>
+                <h3 class="section-title">Sessions</h3>
             </div>
             <div class="attempts-display" id="attemptsDisplay">
                 <div class="loader"></div>
@@ -117,10 +87,9 @@
         </div>
     </div>
     
-    <!-- All Students Overview (shown when no search) -->
+    <!-- Recent Activity (shown when no search) -->
     <div class="all-students-section" id="allStudentsSection">
-        <h3 class="section-title">Recent Activity</h3>
-        <p class="section-description">Recent quiz sessions across all learners</p>
+        <h3 class="section-title">Recent Sessions</h3>
         <div class="recent-attempts" id="recentAttempts">
             <div class="loader"></div>
         </div>

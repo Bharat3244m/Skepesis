@@ -1,0 +1,319 @@
+{% extends "base.html" %}
+
+{% block title %}Curiosity Solver - Skepesis{% endblock %}
+
+{% block content %}
+<div class="curiosity-page">
+    <!-- Header -->
+    <header class="curiosity-header">
+        <h1 class="curiosity-title">Curiosity Solver</h1>
+        <p class="curiosity-subtitle">Get analytical explanations for any question</p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="inquiry-section">
+        <div class="inquiry-input-container">
+            <textarea 
+                id="questionInput" 
+                class="inquiry-input" 
+                placeholder="What would you like to understand better?"
+                rows="3"
+                maxlength="1000"
+            ></textarea>
+            <div class="inquiry-actions">
+                <span class="char-count" id="charCount">0 / 1000</span>
+                <button class="btn-primary" id="analyzeBtn" onclick="submitQuestion()">
+                    Analyze
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Section -->
+    <section class="analysis-section" id="analysisSection" style="display: none;">
+        
+        <div class="analysis-panel" id="analysisPanel">
+            <div class="analysis-content" id="analysisContent">
+                <!-- Response will be rendered here -->
+            </div>
+        </div>
+        
+        <!-- Follow-up -->
+        <div class="followup-section" id="followupSection" style="display: none;">
+            <div class="followup-prompt">
+                <span class="followup-label">Follow-up</span>
+                <input 
+                    type="text" 
+                    id="followupInput" 
+                    class="followup-input" 
+                    placeholder="Ask a clarifying question..."
+                    maxlength="500"
+                />
+                <button class="btn-secondary btn-small" onclick="submitFollowup()">Ask</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="analysis-loading" id="analysisLoading" style="display: none;">
+        <div class="loading-indicator">
+            <span class="loading-text">Analyzing</span>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="analysis-error" id="analysisError" style="display: none;">
+        <p class="error-text" id="errorText">Unable to process your question. Please try again.</p>
+        <button class="btn-secondary btn-small" onclick="resetAnalysis()">Try Again</button>
+    </div>
+
+    <!-- History (optional, subtle) -->
+    <section class="history-section" id="historySection" style="display: none;">
+        <div class="section-label">Previous Questions</div>
+        <div class="history-list" id="historyList">
+            <!-- Previous questions rendered here -->
+        </div>
+    </section>
+</div>
+
+<script>
+let currentContext = '';
+let questionHistory = [];
+
+// Character counter
+document.getElementById('questionInput').addEventListener('input', function() {
+    const count = this.value.length;
+    document.getElementById('charCount').textContent = `${count} / 1000`;
+});
+
+// Enter to submit
+document.getElementById('questionInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        submitQuestion();
+    }
+});
+
+document.getElementById('followupInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        submitFollowup();
+    }
+});
+
+async function submitQuestion() {
+    const input = document.getElementById('questionInput');
+    const question = input.value.trim();
+    
+    if (question.length < 10) {
+        showError('Please enter a more detailed question (at least 10 characters).');
+        return;
+    }
+    
+    // Store context for follow-ups
+    currentContext = question;
+    
+    await analyzeQuestion(question, false);
+}
+
+async function submitFollowup() {
+    const input = document.getElementById('followupInput');
+    const followup = input.value.trim();
+    
+    if (followup.length < 5) return;
+    
+    // Combine with context
+    const fullQuestion = `Context: ${currentContext}\n\nFollow-up question: ${followup}`;
+    currentContext += `\n\nFollow-up: ${followup}`;
+    
+    input.value = '';
+    await analyzeQuestion(fullQuestion, true);
+}
+
+async function analyzeQuestion(question, isFollowup) {
+    const btn = document.getElementById('analyzeBtn');
+    const loading = document.getElementById('analysisLoading');
+    const section = document.getElementById('analysisSection');
+    const error = document.getElementById('analysisError');
+    const content = document.getElementById('analysisContent');
+    const followupSection = document.getElementById('followupSection');
+    
+    // Show loading
+    btn.disabled = true;
+    btn.textContent = 'Analyzing...';
+    loading.style.display = 'block';
+    error.style.display = 'none';
+    
+    if (!isFollowup) {
+        section.style.display = 'none';
+    }
+    
+    try {
+        const response = await fetch('/api/insights/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                data: question,
+                type: 'explain',
+                length: 'standard'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Analysis failed');
+        }
+        
+        const result = await response.json();
+        
+        // Render response
+        loading.style.display = 'none';
+        section.style.display = 'block';
+        content.innerHTML = formatAnalysis(result.insight, isFollowup);
+        followupSection.style.display = 'block';
+        
+        // Add to history
+        if (!isFollowup) {
+            addToHistory(question);
+        }
+        
+        // Scroll to response
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+    } catch (err) {
+        console.error('Analysis error:', err);
+        loading.style.display = 'none';
+        showError('Unable to analyze your question. The analysis service may be temporarily unavailable.');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Analyze';
+    }
+}
+
+function formatAnalysis(text, isFollowup) {
+    if (!text) return '<p class="analysis-empty">No analysis available.</p>';
+    
+    let html = '';
+    
+    if (isFollowup) {
+        html += '<div class="analysis-divider"></div>';
+    }
+    
+    html += '<div class="analysis-block">';
+    
+    // Parse and format the response
+    const lines = text.split('\n').filter(line => line.trim());
+    
+    lines.forEach(line => {
+        const trimmed = line.trim();
+        
+        // Headers (lines ending with :)
+        if (trimmed.endsWith(':') && trimmed.length < 50) {
+            html += `<h4 class="analysis-heading">${trimmed.slice(0, -1)}</h4>`;
+        }
+        // Bullet points
+        else if (trimmed.startsWith('•') || trimmed.startsWith('-') || trimmed.startsWith('*')) {
+            const bulletText = trimmed.replace(/^[•\-\*]\s*/, '');
+            html += `<p class="analysis-point">• ${bulletText}</p>`;
+        }
+        // Numbered items
+        else if (/^\d+[\.\)]\s/.test(trimmed)) {
+            const itemText = trimmed.replace(/^\d+[\.\)]\s*/, '');
+            html += `<p class="analysis-point">• ${itemText}</p>`;
+        }
+        // Key-value pairs
+        else if (trimmed.includes(':') && trimmed.split(':')[0].length < 30) {
+            const [label, ...valueParts] = trimmed.split(':');
+            const value = valueParts.join(':').trim();
+            if (value) {
+                html += `<p class="analysis-finding"><strong>${label.trim()}:</strong> ${value}</p>`;
+            } else {
+                html += `<p class="analysis-text">${trimmed}</p>`;
+            }
+        }
+        // Regular paragraphs
+        else {
+            html += `<p class="analysis-text">${trimmed}</p>`;
+        }
+    });
+    
+    html += '</div>';
+    return html;
+}
+
+function showError(message) {
+    const error = document.getElementById('analysisError');
+    const errorText = document.getElementById('errorText');
+    errorText.textContent = message;
+    error.style.display = 'block';
+}
+
+function resetAnalysis() {
+    document.getElementById('analysisError').style.display = 'none';
+    document.getElementById('questionInput').focus();
+}
+
+function addToHistory(question) {
+    questionHistory.unshift({
+        question: question,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Keep only last 5
+    if (questionHistory.length > 5) {
+        questionHistory = questionHistory.slice(0, 5);
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('curiosity_history', JSON.stringify(questionHistory));
+    
+    renderHistory();
+}
+
+function renderHistory() {
+    const section = document.getElementById('historySection');
+    const list = document.getElementById('historyList');
+    
+    if (questionHistory.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    
+    section.style.display = 'block';
+    
+    let html = '';
+    questionHistory.slice(1).forEach((item, idx) => {
+        const truncated = item.question.length > 80 
+            ? item.question.substring(0, 80) + '...' 
+            : item.question;
+        html += `
+            <button class="history-item" onclick="loadFromHistory(${idx + 1})">
+                ${truncated}
+            </button>
+        `;
+    });
+    
+    list.innerHTML = html;
+}
+
+function loadFromHistory(idx) {
+    const item = questionHistory[idx];
+    if (item) {
+        document.getElementById('questionInput').value = item.question;
+        document.getElementById('charCount').textContent = `${item.question.length} / 1000`;
+    }
+}
+
+// Load history on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('curiosity_history');
+    if (saved) {
+        try {
+            questionHistory = JSON.parse(saved);
+            renderHistory();
+        } catch (e) {
+            console.error('Failed to load history:', e);
+        }
+    }
+});
+</script>
+{% endblock %}
