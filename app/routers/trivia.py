@@ -3,10 +3,15 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.database import get_db
 from app.schemas.question import QuestionResponse
-from app.services.trivia_api import TriviaAPIService
+from app.services.trivia_api import TriviaAPIService, TriviaAPIError
 from app.crud import question as crud
+from app.crud.question import QuestionCRUDError
+from app.logger import get_logger
+
+logger = get_logger(__name__)
 
 router = APIRouter(prefix="/api/trivia", tags=["trivia"])
+
 
 @router.get("/categories")
 async def get_trivia_categories():
@@ -14,14 +19,19 @@ async def get_trivia_categories():
     try:
         categories = await TriviaAPIService.get_categories()
         return {"categories": categories}
+    except TriviaAPIError as e:
+        logger.error(f"Failed to fetch trivia categories: {e}")
+        raise HTTPException(status_code=503, detail="Trivia service temporarily unavailable")
     except Exception as e:
+        logger.error(f"Unexpected error fetching categories: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
 
 @router.post("/import", response_model=List[QuestionResponse])
 async def import_questions(
     amount: int = Query(10, ge=1, le=50, description="Number of questions to import"),
     category: Optional[int] = Query(None, description="Category ID from Open Trivia DB"),
-    difficulty: Optional[str] = Query(None, regex="^(easy|medium|hard)$", description="Difficulty level"),
+    difficulty: Optional[str] = Query(None, pattern="^(easy|medium|hard)$", description="Difficulty level"),
     db: Session = Depends(get_db)
 ):
     """
@@ -49,17 +59,27 @@ async def import_questions(
             created_questions.append(db_question)
         
         return created_questions
-        
+    
+    except TriviaAPIError as e:
+        logger.error(f"Trivia API error during import: {e}")
+        raise HTTPException(status_code=503, detail="Trivia service temporarily unavailable")
+    except QuestionCRUDError as e:
+        logger.error(f"Database error during question import: {e}")
+        raise HTTPException(status_code=500, detail="Failed to save questions to database")
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException:
+        raise
     except Exception as e:
+        logger.error(f"Unexpected error importing questions: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to import questions: {str(e)}")
+
 
 @router.get("/preview")
 async def preview_questions(
     amount: int = Query(5, ge=1, le=10, description="Number of questions to preview"),
     category: Optional[int] = Query(None, description="Category ID"),
-    difficulty: Optional[str] = Query(None, regex="^(easy|medium|hard)$")
+    difficulty: Optional[str] = Query(None, pattern="^(easy|medium|hard)$")
 ):
     """
     Preview questions from Open Trivia Database without saving
@@ -79,6 +99,9 @@ async def preview_questions(
             "count": len(questions),
             "questions": [q.model_dump() for q in questions]
         }
-        
+    except TriviaAPIError as e:
+        logger.error(f"Trivia API error during preview: {e}")
+        raise HTTPException(status_code=503, detail="Trivia service temporarily unavailable")
     except Exception as e:
+        logger.error(f"Unexpected error previewing questions: {e}")
         raise HTTPException(status_code=500, detail=str(e))

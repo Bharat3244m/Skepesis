@@ -5,9 +5,9 @@ class Settings(BaseSettings):
     """Application settings"""
     app_name: str = "Skepesis"
     app_version: str = "1.0.0"
-    debug: bool = True
+    debug: bool = False
     database_url: str = "sqlite:///./skepesis.db"
-    secret_key: str = "change-this-in-production"
+    secret_key: str = ""
     
     class Config:
         env_file = ".env"

@@ -1,0 +1,9 @@
+2025-12-18 10:47:44.458 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-18 10:47:44.458 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-18 10:47:53.188 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-18 10:47:53.608 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-18 10:47:53.608 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-18 10:47:56.418 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-18 10:48:03.623 | INFO     | test | <string>:7 | <module> | Test message
+2025-12-18 10:48:03.623 | WARNING  | test | <string>:8 | <module> | Warning message
+2025-12-18 10:48:03.623 | ERROR    | test | <string>:9 | <module> | Error message

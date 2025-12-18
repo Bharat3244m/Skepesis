@@ -1,7 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from typing import List, Optional
 from app.schemas.question import QuestionPublic
-from app.services.trivia_api import TriviaAPIService
+from app.services.trivia_api import TriviaAPIService, TriviaAPIError
+from app.logger import get_logger
+
+logger = get_logger(__name__)
 
 router = APIRouter(prefix="/api/questions", tags=["questions"])
 
@@ -32,6 +35,7 @@ OPENTDB_CATEGORIES = {
     "Entertainment: Japanese Anime & Manga": 31,
     "Entertainment: Cartoon & Animations": 32,
 }
+
 
 @router.get("/random", response_model=List[QuestionPublic])
 async def get_random_questions(
@@ -82,12 +86,21 @@ async def get_random_questions(
             )
             for idx, q in enumerate(api_questions)
         ]
+    except TriviaAPIError as e:
+        logger.error(f"Trivia API error: {e}")
+        raise HTTPException(status_code=503, detail="Trivia service temporarily unavailable")
     except HTTPException:
         raise
     except Exception as e:
+        logger.error(f"Unexpected error fetching questions: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to fetch questions: {str(e)}")
+
 
 @router.get("/categories", response_model=List[str])
 def get_categories():
     """Get all available categories from Open Trivia Database"""
-    return list(OPENTDB_CATEGORIES.keys())
+    try:
+        return list(OPENTDB_CATEGORIES.keys())
+    except Exception as e:
+        logger.error(f"Error getting categories: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch categories")

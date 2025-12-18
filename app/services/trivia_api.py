@@ -7,6 +7,15 @@ import html
 import random
 from typing import List, Optional, Dict, Any
 from app.schemas.question import QuestionCreate
+from app.logger import get_logger
+
+logger = get_logger(__name__)
+
+
+class TriviaAPIError(Exception):
+    """Custom exception for Trivia API errors"""
+    pass
+
 
 class TriviaAPIService:
     """Service to fetch questions from Open Trivia Database"""
@@ -18,7 +27,11 @@ class TriviaAPIService:
         """Decode HTML entities in text"""
         if not text:
             return text
-        return html.unescape(text)
+        try:
+            return html.unescape(text)
+        except Exception as e:
+            logger.warning(f"Failed to decode HTML entities: {e}")
+            return text
     
     @staticmethod
     async def fetch_questions(
@@ -38,6 +51,9 @@ class TriviaAPIService:
             
         Returns:
             List of QuestionCreate objects
+            
+        Raises:
+            TriviaAPIError: If API request fails or returns invalid data
         """
         params = {
             "amount": min(amount, 50),  # API limit is 50
@@ -55,20 +71,46 @@ class TriviaAPIService:
                 response.raise_for_status()
                 data = response.json()
                 
-                if data.get("response_code") != 0:
-                    raise ValueError(f"API error: response_code {data.get('response_code')}")
+                response_code = data.get("response_code")
+                if response_code != 0:
+                    error_messages = {
+                        1: "Not enough questions available for the specified criteria",
+                        2: "Invalid parameter in API request",
+                        3: "Token not found (session issue)",
+                        4: "Token empty (all questions exhausted)"
+                    }
+                    error_msg = error_messages.get(response_code, f"Unknown API error code: {response_code}")
+                    logger.warning(f"Trivia API returned error: {error_msg}")
+                    raise TriviaAPIError(error_msg)
                 
                 questions = []
                 for item in data.get("results", []):
-                    question = TriviaAPIService._convert_to_question(item)
-                    questions.append(question)
+                    try:
+                        question = TriviaAPIService._convert_to_question(item)
+                        questions.append(question)
+                    except Exception as e:
+                        logger.warning(f"Failed to convert question: {e}")
+                        continue
+                
+                if not questions:
+                    raise TriviaAPIError("No valid questions could be parsed from API response")
                 
                 return questions
                 
+        except httpx.TimeoutException as e:
+            logger.error(f"Timeout fetching questions from Trivia API: {e}")
+            raise TriviaAPIError("Trivia API request timed out") from e
+        except httpx.HTTPStatusError as e:
+            logger.error(f"HTTP error from Trivia API: {e}")
+            raise TriviaAPIError(f"Trivia API returned HTTP {e.response.status_code}") from e
         except httpx.HTTPError as e:
-            raise Exception(f"Failed to fetch questions from API: {str(e)}")
+            logger.error(f"Network error fetching questions: {e}")
+            raise TriviaAPIError(f"Failed to connect to Trivia API: {str(e)}") from e
+        except TriviaAPIError:
+            raise
         except Exception as e:
-            raise Exception(f"Error processing API response: {str(e)}")
+            logger.error(f"Unexpected error processing API response: {e}")
+            raise TriviaAPIError(f"Error processing API response: {str(e)}") from e
     
     @staticmethod
     def _convert_to_question(item: Dict[str, Any]) -> QuestionCreate:
@@ -150,5 +192,12 @@ class TriviaAPIService:
                     categories[cat["id"]] = cat["name"]
                 
                 return categories
+        except httpx.TimeoutException as e:
+            logger.error(f"Timeout fetching categories: {e}")
+            raise TriviaAPIError("Trivia API request timed out") from e
+        except httpx.HTTPError as e:
+            logger.error(f"HTTP error fetching categories: {e}")
+            raise TriviaAPIError(f"Failed to fetch categories: {str(e)}") from e
         except Exception as e:
-            raise Exception(f"Failed to fetch categories: {str(e)}")
+            logger.error(f"Unexpected error fetching categories: {e}")
+            raise TriviaAPIError(f"Failed to fetch categories: {str(e)}") from e

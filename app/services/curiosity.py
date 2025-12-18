@@ -11,6 +11,15 @@ Analyzes user confidence levels and response patterns to infer:
 """
 from typing import List, Dict, Any
 from app.models.response import Response
+from app.logger import get_logger
+
+logger = get_logger(__name__)
+
+
+class CuriosityAnalysisError(Exception):
+    """Custom exception for curiosity analysis errors"""
+    pass
+
 
 class CuriosityAnalyzer:
     """Analyzes user responses to determine curiosity and learning patterns.
@@ -32,26 +41,30 @@ class CuriosityAnalyzer:
         if not responses:
             return 0.0
         
-        curiosity_points = 0.0
-        
-        for response in responses:
-            conf = response.confidence_level
+        try:
+            curiosity_points = 0.0
             
-            # Pattern 1: Low confidence but correct (curious learner)
-            if response.is_correct and conf < 50:
-                curiosity_points += (50 - conf) / 50 * 25
+            for response in responses:
+                conf = response.confidence_level or 0
+                
+                # Pattern 1: Low confidence but correct (curious learner)
+                if response.is_correct and conf < 50:
+                    curiosity_points += (50 - conf) / 50 * 25
+                
+                # Pattern 2: High confidence but incorrect (overconfident, learning opportunity)
+                if not response.is_correct and conf > 70:
+                    curiosity_points += (conf - 70) / 30 * 20
+                
+                # Pattern 3: Medium confidence (thoughtful consideration)
+                if 40 <= conf <= 60:
+                    curiosity_points += 10
             
-            # Pattern 2: High confidence but incorrect (overconfident, learning opportunity)
-            if not response.is_correct and conf > 70:
-                curiosity_points += (conf - 70) / 30 * 20
-            
-            # Pattern 3: Medium confidence (thoughtful consideration)
-            if 40 <= conf <= 60:
-                curiosity_points += 10
-        
-        # Normalize to 0-100
-        max_possible = len(responses) * 30
-        return min(100, (curiosity_points / max_possible) * 100) if max_possible > 0 else 0
+            # Normalize to 0-100
+            max_possible = len(responses) * 30
+            return min(100, (curiosity_points / max_possible) * 100) if max_possible > 0 else 0
+        except Exception as e:
+            logger.error(f"Error calculating curiosity score: {e}")
+            return 0.0
     
     @staticmethod
     def identify_learning_gaps(responses: List[Response]) -> Dict[str, Any]:
