@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Skepesis{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/style.css?v=4">
+    <link rel="stylesheet" href="/static/css/style.css?v=4" />
     {% block extra_css %}{% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo">Σ</span>
-                <span class="brand-name">Skepesis</span>
-            </div>
-            <div class="nav-links">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/curiosity" class="nav-link">Curiosity Solver</a>
-                <a href="/dashboard" class="nav-link">History</a>
-            </div>
+      <div class="container">
+        <div class="nav-brand">
+          <span class="logo">Σ</span>
+          <span class="brand-name">Skepesis</span>
         </div>
+        <nav class="nav-links" style="display: flex; gap: 1.5rem; align-items: center; list-style: none; margin: 0; padding: 0;">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/curiosity" class="nav-link">Curiosity</a>
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+          {% if request.state.user %}
+            <a href="/profile" class="user-link" style="font-weight: 500;">Hello, {{ request.state.user.username }}</a>
+            <a href="/logout" class="btn btn-secondary">Logout</a>
+          {% else %}
+            <a href="/login" class="btn btn-primary">Login</a>
+          {% endif %}
+        </nav>
+      </div>
     </nav>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <main>{% block content %}{% endblock %}</main>
 
     <footer class="footer">
-        <div class="container">
-            <p class="footer-text">Skepesis</p>
-            <p class="footer-tagline">Metacognitive learning through confidence calibration</p>
-        </div>
+      <div class="container">
+        <p class="footer-text">Skepesis</p>
+        <p class="footer-tagline">
+          Metacognitive learning through confidence calibration
+        </p>
+      </div>
     </footer>
 
     <script src="/static/js/app.js"></script>
     {% block extra_js %}{% endblock %}
-</body>
+  </body>
 </html>

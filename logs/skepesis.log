@@ -193,3 +193,255 @@
 2025-12-19 02:29:19.770 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
 2025-12-19 02:29:19.770 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
 2025-12-19 02:32:34.371 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 02:34:59.876 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 10:53:40.561 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 10:53:40.561 | INFO     | app.main | main.py:25 | lifespan | Application startup complete
+2025-12-19 10:53:54.135 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:53:54.143 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:53:54.144 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:53:54.146 | ERROR    | app.services.llm | llm.py:826 | _execute_generation | LLM HTTP error: 404
+2025-12-19 10:53:54.146 | WARNING  | app.routers.llm | llm.py:210 | generate_insight | Insight generation failed: Service error: 404
+2025-12-19 10:53:54.147 | ERROR    | app.services.llm | llm.py:826 | _execute_generation | LLM HTTP error: 404
+2025-12-19 10:53:54.147 | WARNING  | app.routers.llm | llm.py:210 | generate_insight | Insight generation failed: Service error: 404
+2025-12-19 10:53:54.148 | ERROR    | app.services.llm | llm.py:826 | _execute_generation | LLM HTTP error: 404
+2025-12-19 10:53:54.149 | WARNING  | app.routers.llm | llm.py:210 | generate_insight | Insight generation failed: Service error: 404
+2025-12-19 10:56:26.963 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:56:26.963 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:56:26.964 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:56:35.791 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:56:35.791 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:56:41.916 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:56:41.916 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:56:47.605 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:56:47.606 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:57:02.441 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:57:02.443 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:57:02.444 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:57:07.757 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:57:07.757 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:57:13.633 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:57:13.634 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:57:19.115 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:57:19.115 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:58:25.468 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:58:34.539 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:58:34.539 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:59:15.373 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:59:22.386 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:59:22.386 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:59:36.070 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:59:42.963 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 10:59:42.963 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 10:59:47.744 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 10:59:47.744 | INFO     | app.services.llm | llm.py:726 | generate | Returning cached LLM response
+2025-12-19 10:59:47.744 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 11:10:10.527 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 11:10:10.528 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 11:10:10.529 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 11:10:20.239 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 11:10:20.239 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 11:10:25.639 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 11:10:25.639 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 11:10:31.678 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 11:10:31.678 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 11:12:35.220 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 11:12:46.369 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 11:12:46.369 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 11:18:09.714 | INFO     | app.main | main.py:31 | lifespan | Application shutdown
+2025-12-19 19:46:06.923 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 19:46:06.923 | INFO     | app.main | main.py:29 | lifespan | Application startup complete
+2025-12-19 19:47:06.898 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-12-19 19:47:06.905 | ERROR    | app.main | main.py:89 | general_exception_handler | Unhandled exception on /register: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 60, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 54, in register
+    hashed_password=get_password_hash(password)
+  File "/home/bharat/Documents/skepesis/app/services/auth.py", line 13, in get_password_hash
+    return pwd_context.hash(password)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2163, in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2188, in set_backend
+    cls._set_backend(name, dryrun)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2311, in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 2224, in _set_backend
+    ok = loader(**kwds)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 626, in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 421, in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 380, in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/passlib/handlers/bcrypt.py", line 655, in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2025-12-19 21:12:20.261 | INFO     | app.main | main.py:35 | lifespan | Application shutdown
+2025-12-19 21:12:42.409 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 21:12:42.409 | INFO     | app.main | main.py:29 | lifespan | Application startup complete
+2025-12-19 21:17:43.665 | INFO     | app.main | main.py:35 | lifespan | Application shutdown
+2025-12-19 21:17:44.103 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 21:17:44.103 | INFO     | app.main | main.py:40 | lifespan | Application startup complete
+2025-12-19 21:18:41.792 | ERROR    | app.main | main.py:101 | general_exception_handler | Unhandled exception on /login: 'functools._lru_cache_wrapper' object has no attribute 'ACCESS_TOKEN_EXPIRE_MINUTES'
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 86, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 28, in login
+    access_token_expires = timedelta(minutes=get_settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'functools._lru_cache_wrapper' object has no attribute 'ACCESS_TOKEN_EXPIRE_MINUTES'
+2025-12-19 21:20:58.448 | INFO     | app.main | main.py:46 | lifespan | Application shutdown
+2025-12-19 21:35:30.387 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 21:35:30.388 | INFO     | app.main | main.py:40 | lifespan | Application startup complete
+2025-12-19 21:36:49.983 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:36:49.989 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:36:49.990 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:37:00.079 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:37:00.080 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:37:00.080 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-19 21:37:02.162 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:02.162 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:37:11.043 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:11.043 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:37:17.204 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:17.204 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:37:22.973 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:22.973 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:37:30.229 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:30.229 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:37:36.554 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-19 21:37:36.554 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-19 21:43:26.432 | INFO     | app.main | main.py:46 | lifespan | Application shutdown
+2025-12-19 22:10:06.781 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 22:10:06.781 | INFO     | app.main | main.py:40 | lifespan | Application startup complete
+2025-12-19 22:13:35.090 | INFO     | app.main | main.py:46 | lifespan | Application shutdown
