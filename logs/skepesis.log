@@ -1329,3 +1329,251 @@ NameError: name 'RedirectResponse' is not defined
 2025-12-19 22:21:10.933 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
 2025-12-19 22:26:46.891 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
 2025-12-19 22:26:46.891 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-19 23:10:22.588 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-19 23:10:22.588 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-19 23:14:47.090 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /profile: 'app.models.user.User object' has no attribute 'name'
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 79, in profile
+    return templates.TemplateResponse("profile.html", {"request": request, "user": user})
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 210, in TemplateResponse
+    return _TemplateResponse(
+        template,
+    ...<4 lines>...
+        background=background,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 41, in __init__
+    content = template.render(context)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "app/templates/profile.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "app/templates/base.html", line 36, in top-level template code
+    <main>{% block content %}{% endblock %}</main>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "app/templates/profile.html", line 10, in block 'content'
+    <span>{{ user.name[0] }}</span>
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.user.User object' has no attribute 'name'
+2025-12-19 23:14:49.347 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /profile: 'app.models.user.User object' has no attribute 'name'
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 79, in profile
+    return templates.TemplateResponse("profile.html", {"request": request, "user": user})
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 210, in TemplateResponse
+    return _TemplateResponse(
+        template,
+    ...<4 lines>...
+        background=background,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 41, in __init__
+    content = template.render(context)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "app/templates/profile.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "app/templates/base.html", line 36, in top-level template code
+    <main>{% block content %}{% endblock %}</main>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "app/templates/profile.html", line 10, in block 'content'
+    <span>{{ user.name[0] }}</span>
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.user.User object' has no attribute 'name'
+2025-12-19 23:14:49.953 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /profile: 'app.models.user.User object' has no attribute 'name'
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 79, in profile
+    return templates.TemplateResponse("profile.html", {"request": request, "user": user})
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 210, in TemplateResponse
+    return _TemplateResponse(
+        template,
+    ...<4 lines>...
+        background=background,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/templating.py", line 41, in __init__
+    content = template.render(context)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "app/templates/profile.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "app/templates/base.html", line 36, in top-level template code
+    <main>{% block content %}{% endblock %}</main>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "app/templates/profile.html", line 10, in block 'content'
+    <span>{{ user.name[0] }}</span>
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/jinja2/environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'app.models.user.User object' has no attribute 'name'

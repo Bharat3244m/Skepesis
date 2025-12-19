@@ -26,7 +26,7 @@
             <a href="/login" class="btn btn-primary" style="background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md, 8px); font-weight: 600;">Login</a>
           {% endif %}
           {% if request.state.user %}
-            <a href="/profile" class="user-link" style="font-weight: 500;">Hello, {{ request.state.user.username }}</a>
+            <a href="/profile" class="user-link" style="font-weight: 500;">{{ request.state.user.username }}</a>
             <a href="/logout" class="btn btn-secondary">Logout</a>
           {% endif %}
         </nav>

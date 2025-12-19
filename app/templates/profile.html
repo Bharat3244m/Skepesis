@@ -2,14 +2,109 @@
 
 {% block content %}
 <div class="container" style="margin-top: 50px;">
-    <h2>User Profile</h2>
-    <div class="card" style="padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-        <p><strong>Username:</strong> {{ user.username }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Member Since:</strong> {{ user.created_at.strftime('%Y-%m-%d') }}</p>
-        <p><strong>Status:</strong> {% if user.is_active %}Active{% else %}Inactive{% endif %}</p>
+    <!-- <h2>User Profile</h2> -->
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; min-height: 70vh;">
+            <h1 style="margin-bottom: 2.2rem; font-size: 2.1rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.01em;">User Profile</h1>
+                <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-bg); font-family: 'Inter', sans-serif;">
+                  <div style="background: var(--color-surface, #fff); box-shadow: 0 4px 32px 0 rgba(16,30,54,0.10), 0 1.5px 6px 0 rgba(16,30,54,0.04); border-radius: 18px; max-width: 420px; width: 100%; padding: 40px 36px 28px 36px; display: flex; flex-direction: column; gap: 0;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.7rem;">
+                    <!-- Avatar + Name + Status -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.3rem; margin-bottom: 0.2rem;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary-light); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--color-primary);">
+                            <span>{{ user.username[0] }}</span>
+                        </div>
+                        <h2 style="margin: 0; font-size: 1.8rem; font-weight: 700; color: var(--color-primary); text-align: center; letter-spacing: -1px;">{{ user.username }}</h2>
+                        <span style="padding: 0.18em 0.8em; border-radius: 1em; font-weight: 700; font-size: 0.97em; background: var(--color-primary-subtle); color: var(--color-primary); letter-spacing: 0.03em; margin-top: 0.1rem;">{% if user.is_active %}Active{% else %}Inactive{% endif %}</span>
+                    </div>
+                    <!-- Core Info -->
+                    <div style="width: 100%; max-width: 320px; margin: 0 auto;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.32rem 0;">
+                            <span style="font-weight: 500; color: var(--color-text-secondary);">Email-</span>
+                            <span style="font-weight: 600; color: var(--color-text-main);"> {{ user.email }}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.32rem 0;">
+                            <span style="font-weight: 500; color: var(--color-text-secondary);">Member Since</span>
+                            <span style="font-weight: 600; color: var(--color-text-main);">{{ user.created_at.strftime('%Y-%m-%d') }}</span>
+                        </div>
+                        <!-- Profile Context + Learning State -->
+                        <div style="height: 1px; background: var(--color-border-subtle); margin: 0.7rem 0 0.5rem 0;"></div>
+                        <div style="font-size: 1.04rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem;">Profile Context</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.13rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Display Name</span>
+                                <span style="font-weight: 600; color: var(--color-text-main);">{{ user.display_name or '' }}</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.1rem; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Primary Learning Goal</span>
+                                <span style="font-weight: 600; color: var(--color-text-main);">{{ user.learning_goal or '' }}</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.1rem; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Field(s) of Interest</span>
+                                <span style="font-weight: 600; color: var(--color-accent);">{{ user.fields_of_interest or '' }}</span>
+                            </div>
+                        </div>
+                        <div style="height: 1px; background: var(--color-border-subtle); margin: 0.7rem 0 0.5rem 0;"></div>
+                        <div style="font-size: 1.04rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem;">Learning State</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.13rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.1rem; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Current Focus Area</span>
+                                <span style="font-weight: 600; color: var(--color-text-main);">{{ user.focus_area or '' }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Self-assessed Skill Level</span>
+                                <span style="font-weight: 600; color: var(--color-text-main);">{{ user.skill_level or '' }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Weekly Time Commitment</span>
+                                <span style="font-weight: 600; color: var(--color-text-main);">{{ user.time_commitment or '' }}</span>
+                            </div>
+                        </div>
+                        <!-- Activity Overview -->
+                        <div style="height: 1px; background: var(--color-border-subtle); margin: 0.7rem 0 0.5rem 0;"></div>
+                        <div style="font-size: 1.04rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem;">Activity Overview</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.13rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.1rem; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Last Active</span>
+                                <span style="font-weight: 600; color: var(--color-text-tertiary);">{{ user.last_active or '2 days ago' }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Total Sessions Completed</span>
+                                <span style="font-weight: 600; color: var(--color-text-tertiary);">{{ user.sessions_completed or '14' }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Curiosity Score</span>
+                                <span style="font-weight: 600; color: var(--color-accent);">{{ user.curiosity_score or '87' }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.22rem 0;">
+                                <span style="font-weight: 500; color: var(--color-text-secondary);">Current Streak</span>
+                                <span style="font-weight: 600; color: var(--color-success);">{{ user.current_streak or '5 days' }}</span>
+                            </div>
+                        </div>
+                        <!-- Actions -->
+                        <div style="height: 1px; background: var(--color-border-subtle); margin: 0.7rem 0 0.5rem 0;"></div>
+                        <div style="font-size: 1.04rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem;">Actions</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="/profile/edit" class="btn-primary" style="width: 100%; padding: 11px 0; font-size: 1.04rem; font-weight: 600; border-radius: var(--radius-md, 8px); background: var(--color-primary); color: var(--color-surface); text-align: center; text-decoration: none; transition: background 0.2s;">Edit Profile</a>
+                            <a href="/profile/change-password" class="btn-secondary" style="width: 100%; padding: 11px 0; font-size: 1.01rem; font-weight: 500; border-radius: var(--radius-md, 8px); background: var(--color-surface-raised); color: var(--color-primary); text-align: center; text-decoration: none; border: 1.5px solid var(--color-border);">Change Password</a>
+                        </div>
+                        <!-- Danger Zone -->
+                        <div style="height: 1px; background: var(--color-error-subtle); margin: 0.7rem 0 0.5rem 0;"></div>
+                        <div style="font-size: 1.04rem; font-weight: 600; color: var(--color-error); margin-bottom: 0.2rem;">Danger Zone</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="/profile/delete" class="btn" style="width: 100%; padding: 11px 0; font-size: 1.01rem; font-weight: 600; border-radius: var(--radius-md, 8px); background: var(--color-error-subtle); color: var(--color-error); text-align: center; text-decoration: none; border: 1.5px solid var(--color-error);">Delete Account</a>
+                        </div>
+                </div>
+            </div>
+                <div style="height: 1px; background: var(--color-border-subtle); margin: 28px 0 0 0;"></div>
+                <div style="width: 100%; display: flex; justify-content: center; margin-top: 18px;">
+                  <!-- <a href="/dashboard" class="btn-primary" style="min-width: 160px; padding: 13px 0; font-size: 1.08rem; font-weight: 600; border-radius: var(--radius-md, 8px); background: var(--color-primary); color: var(--color-surface); box-shadow: 0 1.5px 6px 0 rgba(16,30,54,0.04); text-align: center; text-decoration: none; transition: background 0.2s;">Go to Dashboard</a> -->
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
-    <br>
-    <a href="/dashboard" class="btn">Go to Dashboard</a>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 1.6rem;">
+        <!-- <a href="/dashboard" class="btn" style="min-width: 160px; padding: 0.7em 1.6em; font-size: 1.08rem; font-weight: 600; background: var(--color-primary); color: var(--color-bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); text-align: center; text-decoration: none; transition: background 0.2s;">Go to Dashboard</a> -->
+    </div>
 </div>
 {% endblock %}
