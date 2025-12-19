@@ -15,14 +15,19 @@
           <span class="brand-name">Skepesis</span>
         </div>
         <nav class="nav-links" style="display: flex; gap: 1.5rem; align-items: center; list-style: none; margin: 0; padding: 0;">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/curiosity" class="nav-link">Curiosity</a>
-          <a href="/dashboard" class="nav-link">Dashboard</a>
+          {% set path = request.url.path %}
+          {% if path != '/login' and path != '/register' %}
+            <a href="/" class="nav-link">Home</a>
+            <a href="/curiosity" class="nav-link">Curiosity</a>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+          {% elif path == '/login' %}
+            <a href="/register" class="btn btn-primary" style="background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md, 8px); font-weight: 600;">Register</a>
+          {% elif path == '/register' %}
+            <a href="/login" class="btn btn-primary" style="background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md, 8px); font-weight: 600;">Login</a>
+          {% endif %}
           {% if request.state.user %}
             <a href="/profile" class="user-link" style="font-weight: 500;">Hello, {{ request.state.user.username }}</a>
             <a href="/logout" class="btn btn-secondary">Logout</a>
-          {% else %}
-            <a href="/login" class="btn btn-primary">Login</a>
           {% endif %}
         </nav>
       </div>

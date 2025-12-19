@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -119,30 +120,41 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     try:
-        # Checks for index.html, falls back to base.html if needed
         return templates.TemplateResponse("index.html", {"request": request})
     except Exception:
         return templates.TemplateResponse("base.html", {"request": request})
 
 @app.get("/quiz", response_class=HTMLResponse)
 async def quiz(request: Request):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("quiz.html", {"request": request})
 
 @app.get("/results/{attempt_id}", response_class=HTMLResponse)
 async def results(request: Request, attempt_id: int):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("results.html", {"request": request, "attempt_id": attempt_id})
 
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
 @app.get("/curiosity", response_class=HTMLResponse)
 async def curiosity_solver(request: Request):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("curiosity.html", {"request": request})
 
 @app.get("/attempt/{attempt_id}", response_class=HTMLResponse)
 async def attempt_details(request: Request, attempt_id: int):
+    if not getattr(request.state, "user", None):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("attempt_details.html", {"request": request, "attempt_id": attempt_id})
 
 @app.get("/health")
