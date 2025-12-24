@@ -1,0 +1,53 @@
+<div class="profile-page">
+
+  <!-- Loading -->
+  <div class="state-block" *ngIf="loading">
+    <div class="loader"></div>
+    <p>Loading profile…</p>
+  </div>
+
+  <!-- Error -->
+  <div class="state-block error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <!-- Profile Card -->
+  <div class="profile-card" *ngIf="!loading && user">
+
+    <div class="profile-header">
+      <div class="avatar">
+        {{ user.username?.charAt(0).toUpperCase() }}
+      </div>
+
+      <div class="profile-info">
+        <h2>{{ user.username }}</h2>
+        <p class="email">{{ user.email }}</p>
+      </div>
+    </div>
+
+    <div class="profile-details">
+      <div class="detail">
+        <span class="label">Role</span>
+        <span class="value">{{ user.role }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Joined</span>
+        <span class="value">
+          {{ user.created_at ? (user.created_at | date:'mediumDate') : '' }}
+        </span>
+      </div>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn-secondary" disabled>
+        Edit Profile (coming soon)
+      </button>
+
+      <button class="btn-danger" (click)="logout()">
+        Logout
+      </button>
+    </div>
+
+  </div>
+</div>

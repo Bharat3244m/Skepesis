@@ -1577,3 +1577,1200 @@ Traceback (most recent call last):
     return obj[argument]
            ~~~^^^^^^^^^^
 jinja2.exceptions.UndefinedError: 'app.models.user.User object' has no attribute 'name'
+2025-12-20 08:27:06.904 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 08:27:06.904 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 08:32:56.798 | WARNING  | app.services.llm | llm.py:846 | health_check | LLM health check failed: All connection attempts failed
+2025-12-20 08:33:15.714 | WARNING  | app.services.llm | llm.py:846 | health_check | LLM health check failed: All connection attempts failed
+2025-12-20 08:33:53.017 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 08:33:53.023 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 08:33:53.024 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 08:34:04.139 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 08:34:04.140 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 08:34:09.895 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 08:34:09.896 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 08:34:14.936 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 08:34:14.936 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 10:04:16.676 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:04:16.677 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:05:00.090 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 10:05:00.098 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 10:05:00.099 | INFO     | app.routers.llm | llm.py:179 | generate_insight | Insight request
+2025-12-20 10:05:08.650 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 10:05:08.650 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 10:05:15.788 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 10:05:15.788 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 10:05:20.978 | INFO     | app.services.llm | llm.py:801 | _execute_generation | LLM generation successful
+2025-12-20 10:05:20.978 | INFO     | app.routers.llm | llm.py:195 | generate_insight | Insight generated
+2025-12-20 10:07:22.657 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:07:23.122 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:07:23.122 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:07:40.669 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:07:41.101 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:07:41.101 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:08:28.624 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:08:29.070 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:08:29.070 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:08:54.031 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:08:54.473 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:08:54.474 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:09:26.859 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:09:27.340 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:09:27.340 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:09:27.815 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:09:27.815 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:09:32.226 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:09:32.688 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:09:32.689 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:10:42.073 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:10:42.541 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:10:42.542 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:10:44.647 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:10:45.162 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:10:45.162 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:10:46.163 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:10:46.655 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:10:46.655 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:10:51.266 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:10:51.712 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:10:51.712 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:11:11.260 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:11:11.722 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:11:11.722 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:11:58.952 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:11:59.416 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:11:59.416 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:12:26.501 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:12:26.945 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:12:26.945 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:13:51.350 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:13:51.861 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:13:51.861 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:13:52.346 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:13:52.346 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:13:54.651 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:13:55.110 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:13:55.110 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:15:21.536 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:15:22.041 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:15:22.041 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:15:50.699 | ERROR    | app.database | database.py:31 | get_db | Database session error: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:15:50.699 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /login: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users.role
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 24, in login
+    user = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:16:03.850 | ERROR    | app.database | database.py:31 | get_db | Database session error: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:16:03.851 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /login: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users.role
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 24, in login
+    user = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:19:03.418 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:19:03.903 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:19:03.903 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:19:31.572 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:19:32.043 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:19:32.044 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:19:38.602 | ERROR    | app.database | database.py:31 | get_db | Database session error: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:19:38.602 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /login: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users.role
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 24, in login
+    user = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:19:44.378 | ERROR    | app.database | database.py:31 | get_db | Database session error: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:19:44.379 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /login: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users.role
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 24, in login
+    user = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.role
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('bharat3244m@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-12-20 10:19:52.908 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:27:39.650 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:27:39.650 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:27:51.014 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /login: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'student'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 24, in login
+    user = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1791, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+2025-12-20 10:28:06.997 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /register: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'student'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 69, in register
+    user_exists = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1791, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+2025-12-20 10:28:15.467 | ERROR    | app.main | main.py:102 | general_exception_handler | Unhandled exception on /register: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'student'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/main.py", line 87, in auth_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/fastapi/routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/app/routers/auth.py", line 69, in register
+    user_exists = db.query(User).filter(User.email == email).first()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1791, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "/home/bharat/Documents/skepesis/venv/lib/python3.13/site-packages/sqlalchemy/sql/sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'student' is not among the defined enum values. Enum name: role_enum. Possible values: STUDENT, PARENT, TEACHER
+2025-12-20 10:30:35.781 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:30:36.237 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:30:36.237 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:31:22.196 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:31:42.421 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:31:42.421 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:31:50.227 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:31:50.231 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:31:56.673 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:32:04.917 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:32:08.083 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:32:17.139 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:32:17.345 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:32:17.349 | ERROR    | app.main | main.py:82 | auth_middleware | Middleware Auth Error: (sqlite3.ProgrammingError) Error binding parameter 1: type 'dict' is not supported
+[SQL: SELECT users.id AS users_id, users.email AS users_email, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at, users.role AS users_role 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ({'sub': 'bharat3244m@gmail.com', 'role': 'student'}, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-12-20 10:35:23.144 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:35:23.605 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:35:23.605 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:35:49.497 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:35:49.947 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:35:49.947 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:35:53.258 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:35:58.643 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:35:58.643 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:39:56.095 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:39:56.576 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:39:56.576 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:40:05.804 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:40:06.266 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:40:06.266 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:47:25.473 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:47:25.951 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:47:25.951 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:48:15.679 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:48:16.161 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:48:16.161 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:49:05.294 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:49:05.750 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:49:05.750 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:49:24.910 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:49:25.367 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:49:25.367 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:49:28.679 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:49:31.545 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:49:31.545 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:50:42.430 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:51:08.537 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:51:08.537 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:54:54.965 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:54:54.965 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:56:19.798 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:56:20.267 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:56:20.267 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:56:51.460 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:56:51.927 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:56:51.927 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 10:57:07.772 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 10:57:09.545 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 10:57:09.545 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 11:01:47.920 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 11:01:48.388 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 11:01:48.388 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 11:01:55.107 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 11:01:55.574 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 11:01:55.574 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 11:02:07.709 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-20 11:02:09.582 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-20 11:02:09.582 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-20 11:02:36.761 | INFO     | app.main | main.py:47 | lifespan | Application shutdown
+2025-12-22 11:20:14.242 | INFO     | app.initial_data | initial_data.py:15 | init_db | Database tables created successfully
+2025-12-22 11:20:14.243 | INFO     | app.main | main.py:41 | lifespan | Application startup complete
+2025-12-22 11:20:15.790 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:15.828 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:15.859 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:15.859 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:16.009 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:23.589 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:25.617 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:20:32.956 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:32:11.218 | INFO     | app.main | main.py:95 | auth_middleware | No access_token cookie found in request.
+2025-12-22 11:32:20.758 | INFO     | app.main | main.py:47 | lifespan | Application shutdown

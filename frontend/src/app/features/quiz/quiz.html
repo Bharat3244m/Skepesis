@@ -1,0 +1,64 @@
+<div class="quiz-container" *ngIf="!loading && !completed">
+
+  <!-- Progress -->
+  <div class="quiz-progress">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progressPercent()"></div>
+    </div>
+    <div class="progress-info">
+      Question {{ currentIndex + 1 }} of {{ questions.length }}
+    </div>
+  </div>
+
+  <!-- Question -->
+  <div class="question-block">
+    <span class="question-category">
+      {{ currentQuestion.category }}
+    </span>
+
+    <h2 class="question-text">
+      {{ currentQuestion.text }}
+    </h2>
+
+    <!-- Options -->
+    <div class="options-list">
+      <button
+        class="option-btn"
+        *ngFor="let opt of ['A','B','C','D']"
+        [class.selected]="selectedAnswer === opt"
+        (click)="selectAnswer(opt)">
+        <span class="option-key">{{ opt }}</span>
+        <span class="option-text">{{ currentQuestion['option_' + opt.toLowerCase()] }}</span>
+      </button>
+    </div>
+
+    <!-- Confidence -->
+    <div class="confidence-section">
+      <div class="confidence-header">
+        Confidence: <strong>{{ confidenceLabel() }}</strong>
+      </div>
+
+      <input
+        type="range"
+        min="1"
+        max="5"
+        [(ngModel)]="confidence" />
+    </div>
+
+    <!-- Submit -->
+    <button
+      class="btn-primary btn-large"
+      [disabled]="!selectedAnswer"
+      (click)="submitAnswer()">
+      {{ currentIndex === questions.length - 1 ? 'Complete Quiz' : 'Next Question' }}
+    </button>
+
+  </div>
+</div>
+
+<!-- Completion -->
+<div class="completion-screen" *ngIf="completed">
+  <h2>Session Complete</h2>
+  <p>Generating insights…</p>
+  <div class="loader"></div>
+</div>

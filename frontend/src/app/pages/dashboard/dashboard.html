@@ -1,0 +1,70 @@
+<div class="dashboard-page">
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Your Learning History</h1>
+    <p class="dashboard-subtitle">
+      Review past sessions and explore your cognitive patterns
+    </p>
+  </header>
+
+  <!-- Loading -->
+  <div class="state-block" *ngIf="loading">
+    <div class="loader"></div>
+    <p>Loading your sessions…</p>
+  </div>
+
+  <!-- Error -->
+  <div class="state-block error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <!-- Empty -->
+  <div class="state-block empty" *ngIf="!loading && attempts.length === 0">
+    <div class="empty-icon">📚</div>
+    <h3>No sessions yet</h3>
+    <p>Start a quiz to see your learning history here.</p>
+    <a routerLink="/" class="btn-primary">Start Learning</a>
+  </div>
+
+  <!-- Attempts Grid -->
+  <div class="attempts-grid" *ngIf="!loading && attempts.length > 0">
+    <div
+      class="attempt-card"
+      *ngFor="let a of attempts"
+      [routerLink]="['/results', a.id]"
+    >
+      <div class="attempt-header">
+        <span class="attempt-id">Session #{{ a.id }}</span>
+        <span class="attempt-date">
+          {{ formatDate(a.created_at) }}
+        </span>
+      </div>
+
+      <div class="attempt-metrics">
+        <div class="metric">
+          <span class="metric-value">{{ a.accuracy }}%</span>
+          <span class="metric-label">Accuracy</span>
+        </div>
+
+        <div class="metric">
+          <span class="metric-value">{{ a.avg_confidence }}%</span>
+          <span class="metric-label">Confidence</span>
+        </div>
+
+        <div class="metric">
+          <span class="metric-value">{{ a.calibration_score }}%</span>
+          <span class="metric-label">Calibration</span>
+        </div>
+      </div>
+
+      <div class="attempt-footer">
+        <span class="attempt-questions">
+          {{ a.total_questions }} questions
+        </span>
+        <span class="view-link">View Analysis →</span>
+      </div>
+    </div>
+  </div>
+
+</div>
