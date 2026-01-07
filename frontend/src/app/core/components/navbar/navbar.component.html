@@ -1,16 +1,21 @@
-<nav class="navbar">
+<nav class="navbar" [class.centered-mode]="!isLoggedIn()">
   <div class="container">
+    
     <div class="nav-brand" routerLink="/">
       <span class="logo">Σ</span>
       <span class="brand-name">Skepesis</span>
     </div>
-    <div class="nav-links">
-      <a routerLink="/" class="nav-link" routerLinkActive="active">Home</a>
+
+    <div class="nav-links" *ngIf="isLoggedIn()">
+      <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a routerLink="/curiosity" class="nav-link" routerLinkActive="active">Curiosity</a>
       <a routerLink="/dashboard" class="nav-link" routerLinkActive="active">Dashboard</a>
       
-      <span class="user-greeting">Hello, bharat</span>
-      <button class="btn btn-secondary">Logout</button>
+      <div class="user-actions">
+        <span class="user-greeting">Hello, {{ currentUser()?.username || 'User' }}</span>
+        <button class="btn-logout" (click)="logout()">Logout</button>
+      </div>
     </div>
+
   </div>
 </nav>

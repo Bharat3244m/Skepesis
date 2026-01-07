@@ -4,21 +4,24 @@ import { QuizComponent } from './features/quiz/quiz.component';
 import { AnalysisComponent } from './features/analysis/analysis.component';
 import { CuriosityComponent } from './features/curiosity/curiosity.component';
 import { HistoryComponent } from './features/dashboard/history.component';
-// Correct nested paths:
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { AttemptDetailsComponent } from './features/analysis/attempt-details/attempt-details.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'quiz', component: QuizComponent },
-  { path: 'results/:id', component: AnalysisComponent },
-  { path: 'attempt/:id', component: AttemptDetailsComponent },
-  { path: 'curiosity', component: CuriosityComponent },
-  { path: 'dashboard', component: HistoryComponent },
-  { path: 'profile', component: ProfileComponent },
+  
+  // Protected routes - require authentication
+  { path: 'quiz', component: QuizComponent, canActivate: [authGuard] },
+  { path: 'results/:id', component: AnalysisComponent, canActivate: [authGuard] },
+  { path: 'attempt/:id', component: AttemptDetailsComponent, canActivate: [authGuard] },
+  { path: 'curiosity', component: CuriosityComponent, canActivate: [authGuard] },
+  { path: 'dashboard', component: HistoryComponent, canActivate: [authGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  
   { path: '**', redirectTo: '' }
 ];
