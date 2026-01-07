@@ -1,0 +1,88 @@
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 8rem 0 6rem;
+  background: linear-gradient(180deg, var(--color-bg) 0%, rgba(91, 99, 211, 0.05) 100%);
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* Features Grid */
+.features {
+  padding: 5rem 0;
+  background: white;
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--color-bg);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary-light);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+  }
+}
+
+/* Modal Tweaks */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-tertiary);
+    &:hover { color: var(--color-text); }
+  }
+}

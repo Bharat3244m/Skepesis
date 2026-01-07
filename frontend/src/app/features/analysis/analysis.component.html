@@ -1,0 +1,70 @@
+<div class="analysis-container">
+  <div class="status-badge">● Complete</div>
+  <h1 class="title">Cognitive Analysis</h1>
+
+  <div class="metrics-grid">
+    <div class="metric-item">
+      <span class="val">{{ metrics.accuracy }}%</span>
+      <span class="lab">ACCURACY</span>
+    </div>
+    <div class="metric-item">
+      <span class="val">{{ metrics.confidence }}%</span>
+      <span class="lab">CONFIDENCE</span>
+    </div>
+    <div class="metric-item">
+      <span class="val">{{ metrics.calibration }}%</span>
+      <span class="lab">CALIBRATION</span>
+    </div>
+    <div class="metric-item">
+      <span class="val">{{ metrics.avgTime }}s</span>
+      <span class="lab">AVG TIME</span>
+    </div>
+  </div>
+
+  <div class="card analysis-section">
+    <h3 class="section-title">ANALYSIS</h3>
+    <div class="analysis-group">
+      <h4>RESPONSE PATTERNS</h4>
+      <p class="placeholder-text">Detailed analysis of your response consistency.</p>
+    </div>
+    <hr>
+    <div class="analysis-group">
+      <h4>CALIBRATION STATUS</h4>
+      <p class="placeholder-text">Evaluation of how well your confidence matches your performance.</p>
+    </div>
+  </div>
+
+  <div class="card matrix-section">
+    <h3 class="section-title">CONFIDENCE ANALYSIS</h3>
+    <table class="calibration-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Correct</th>
+          <th>Incorrect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">High Confidence</td>
+          <td class="val-cell zero">—</td>
+          <td class="val-cell error">{{ matrix.highIncorrect }}</td>
+        </tr>
+        <tr>
+          <td class="row-label">Low Confidence</td>
+          <td class="val-cell success">{{ matrix.lowCorrect }}</td>
+          <td class="val-cell warning">{{ matrix.lowIncorrect }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-banner">
+      <p>{{ getCalibrationText() }}</p>
+    </div>
+  </div>
+
+  <div class="footer-actions">
+    <button class="btn-secondary">New Session</button>
+    <button class="btn-primary">View History</button>
+  </div>
+</div>

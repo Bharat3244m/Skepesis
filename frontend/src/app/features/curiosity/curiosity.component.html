@@ -1,0 +1,26 @@
+<div class="curiosity-container">
+  <div class="header-section">
+    <h1>Curiosity Solver</h1>
+    <p>Get analytical explanations for any question</p>
+  </div>
+
+  <div class="input-card">
+    <div class="textarea-wrapper">
+      <textarea 
+        placeholder="What would you like to understand better?" 
+        maxlength="1000"
+        [(ngModel)]="query"
+        #queryArea>
+      </textarea>
+      <div class="footer-row">
+        <span class="char-count">{{ query.length }} / 1000</span>
+        <button 
+          class="btn-analyze" 
+          [disabled]="!query.trim()"
+          (click)="handleAnalysis()">
+          Analyze
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

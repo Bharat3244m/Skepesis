@@ -1,0 +1,59 @@
+.analysis-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+
+  .status-badge {
+    color: #10b981;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .title { font-size: 2rem; color: #1e1b4b; margin-bottom: 3rem; }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+    .val { font-size: 1.5rem; font-weight: 700; color: #6366f1; }
+    .lab { font-size: 0.7rem; color: #9ca3af; letter-spacing: 0.1em; margin-top: 0.5rem; }
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.calibration-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  th { background: #f9fafb; padding: 1rem; color: #6b7280; font-size: 0.8rem; }
+  td { padding: 1.5rem; text-align: center; border: 1px solid #f3f4f6; }
+  
+  .row-label { text-align: left; color: #6b7280; font-weight: 500; background: #f9fafb; }
+  .error { color: #f43f5e; font-weight: 700; }
+  .success { color: #6366f1; font-weight: 700; }
+}
+
+.insight-banner {
+  background: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  p { margin: 0; color: #0369a1; font-weight: 500; }
+}

@@ -1,0 +1,37 @@
+.confidence-box {
+  margin-top: 2rem;
+  width: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    
+    .title { font-weight: 600; color: #4b5563; }
+    .label { 
+      font-weight: 700; 
+      color: #6366f1;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  }
+
+  .slider {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #6366f1;
+  }
+
+  .markers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    
+    span { flex: 1; }
+    span:nth-child(2) { text-align: center; }
+    span:nth-child(3) { text-align: right; }
+  }
+}

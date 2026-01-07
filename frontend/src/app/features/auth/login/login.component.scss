@@ -1,0 +1,23 @@
+.auth-wrapper {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg); // From style.css
+}
+
+.auth-card {
+  background: #fff;
+  box-shadow: 0 4px 32px 0 rgba(16,30,54,0.10), 0 1.5px 6px 0 rgba(16,30,54,0.04); // Exact match
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  padding: 40px 36px 28px 36px;
+}
+
+.brand-text {
+  font-size: 2.2rem;
+  color: var(--color-primary); // #5B63D3
+  letter-spacing: -1px;
+  text-align: center;
+}

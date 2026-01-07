@@ -1,0 +1,17 @@
+<div class="confidence-box">
+  <div class="header">
+    <span class="title">Confidence</span>
+    <span class="label" [attr.data-level]="label">{{ label }}</span>
+  </div>
+  <input 
+    type="range" 
+    [(ngModel)]="confidenceValue" 
+    (input)="onInput()" 
+    min="0" max="100" 
+    class="slider">
+  <div class="markers">
+    <span>Low</span>
+    <span>Medium</span>
+    <span>High</span>
+  </div>
+</div>

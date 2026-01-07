@@ -1,0 +1,61 @@
+<section class="hero">
+  <div class="container">
+    <h1>Master Knowledge<br>Through Curiosity</h1>
+    <p>Adaptive learning platform that analyzes your confidence patterns, identifies knowledge gaps, and provides personalized insights.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" (click)="showModal = true">Start Learning</button>
+      <button class="btn-secondary" routerLink="/dashboard">View History</button>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">📝</div>
+        <h3>Answer & Rate</h3>
+        <p>Take a quiz and rate your confidence to build metacognitive awareness.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔬</div>
+        <h3>AI Analysis</h3>
+        <p>Receive a detailed cognitive report analyzing your response patterns.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💬</div>
+        <h3>Curiosity Solver</h3>
+        <p>Ask follow-up questions to deepen your understanding of any topic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" [class.active]="showModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Begin Learning Session</h2>
+      <button class="close-btn" (click)="showModal = false">&times;</button>
+    </div>
+    <form (submit)="startQuiz()">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" [(ngModel)]="studentName" name="studentName" class="form-input" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label>Category (Optional)</label>
+        <select [(ngModel)]="category" name="category" class="form-input">
+          <option value="">Any Category</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Technology">Technology</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Questions</label>
+        <input type="number" [(ngModel)]="questionCount" name="questionCount" class="form-input" min="5" max="20" value="10">
+      </div>
+      <button type="submit" class="btn-primary btn-block">Start Session</button>
+    </form>
+  </div>
+</div>
