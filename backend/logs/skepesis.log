@@ -368,3 +368,309 @@ WHERE users.email = ?
 2025-12-24 16:41:04.398 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
 2025-12-24 16:41:04.399 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
 2025-12-24 16:41:04.399 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-07 23:35:33.587 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-07 23:35:33.587 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-07 23:35:33.588 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.588 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA temp.table_info("questions")
+2026-01-07 23:35:33.588 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.589 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-07 23:35:33.589 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.589 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA temp.table_info("attempts")
+2026-01-07 23:35:33.589 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.590 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-07 23:35:33.590 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.590 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA temp.table_info("responses")
+2026-01-07 23:35:33.590 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.590 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-07 23:35:33.591 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.591 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA temp.table_info("users")
+2026-01-07 23:35:33.591 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:35:33.592 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | 
+CREATE TABLE questions (
+	id INTEGER NOT NULL, 
+	text TEXT NOT NULL, 
+	question_type VARCHAR NOT NULL, 
+	difficulty VARCHAR NOT NULL, 
+	category VARCHAR NOT NULL, 
+	correct_answer VARCHAR NOT NULL, 
+	option_a VARCHAR, 
+	option_b VARCHAR, 
+	option_c VARCHAR, 
+	option_d VARCHAR, 
+	explanation TEXT, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-07 23:35:33.592 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00019s] ()
+2026-01-07 23:35:33.595 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE INDEX ix_questions_id ON questions (id)
+2026-01-07 23:35:33.595 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00019s] ()
+2026-01-07 23:35:33.598 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | 
+CREATE TABLE attempts (
+	id INTEGER NOT NULL, 
+	student_name VARCHAR NOT NULL, 
+	started_at DATETIME, 
+	completed_at DATETIME, 
+	total_questions INTEGER, 
+	correct_answers INTEGER, 
+	average_confidence FLOAT, 
+	curiosity_score FLOAT, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-07 23:35:33.598 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00018s] ()
+2026-01-07 23:35:33.601 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE INDEX ix_attempts_id ON attempts (id)
+2026-01-07 23:35:33.601 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00020s] ()
+2026-01-07 23:35:33.605 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR NOT NULL, 
+	username VARCHAR NOT NULL, 
+	hashed_password VARCHAR NOT NULL, 
+	is_active BOOLEAN, 
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	role VARCHAR(7) NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-07 23:35:33.605 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00024s] ()
+2026-01-07 23:35:33.608 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE UNIQUE INDEX ix_users_email ON users (email)
+2026-01-07 23:35:33.608 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00016s] ()
+2026-01-07 23:35:33.611 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE INDEX ix_users_id ON users (id)
+2026-01-07 23:35:33.612 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00042s] ()
+2026-01-07 23:35:33.615 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE UNIQUE INDEX ix_users_username ON users (username)
+2026-01-07 23:35:33.616 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00022s] ()
+2026-01-07 23:35:33.618 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | 
+CREATE TABLE responses (
+	id INTEGER NOT NULL, 
+	attempt_id INTEGER NOT NULL, 
+	question_id INTEGER NOT NULL, 
+	user_answer VARCHAR NOT NULL, 
+	confidence_level FLOAT NOT NULL, 
+	is_correct BOOLEAN NOT NULL, 
+	time_spent INTEGER, 
+	created_at DATETIME, 
+	question_text TEXT, 
+	category VARCHAR, 
+	difficulty VARCHAR, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(attempt_id) REFERENCES attempts (id)
+)
+
+
+2026-01-07 23:35:33.618 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00020s] ()
+2026-01-07 23:35:33.621 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | CREATE INDEX ix_responses_id ON responses (id)
+2026-01-07 23:35:33.621 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [no key 0.00022s] ()
+2026-01-07 23:35:33.626 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-07 23:35:33.627 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-07 23:38:27.399 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-07 23:38:33.364 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-07 23:38:33.365 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-07 23:38:33.365 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:38:33.366 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-07 23:38:33.366 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:38:33.367 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-07 23:38:33.367 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:38:33.367 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-07 23:38:33.367 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:38:33.368 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-07 23:38:33.368 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-07 23:52:28.607 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-07 23:52:28.616 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-07 23:52:28.616 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00032s] ('test@example.com',)
+2026-01-07 23:52:28.618 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-07 23:52:28.627 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-07 23:52:28.628 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-07 23:54:51.971 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-07 23:54:51.971 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-07 23:54:51.971 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 143.4s ago] ('test@example.com',)
+2026-01-07 23:54:51.973 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-07 23:54:51.984 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-07 23:54:51.984 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-07 23:55:45.328 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-07 23:55:46.468 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-07 23:55:46.469 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-07 23:55:46.469 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:55:46.470 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-07 23:55:46.470 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:55:46.470 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-07 23:55:46.471 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:55:46.471 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-07 23:55:46.471 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-07 23:55:46.472 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-07 23:55:46.472 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:00:36.094 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-08 00:00:37.076 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:00:37.077 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-08 00:00:37.077 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:37.078 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-08 00:00:37.078 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:37.078 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-08 00:00:37.079 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:37.079 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-08 00:00:37.079 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:37.080 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:00:37.080 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:00:51.537 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-08 00:00:54.172 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:00:54.173 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-08 00:00:54.173 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:54.174 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-08 00:00:54.174 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:54.175 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-08 00:00:54.175 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:54.175 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-08 00:00:54.175 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:00:54.176 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:00:54.176 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:01:03.447 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:01:03.456 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:01:03.457 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00035s] ('test@example.com',)
+2026-01-08 00:01:03.458 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-08 00:01:03.472 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-08 00:01:03.473 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-08 00:03:35.548 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:03:35.548 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:03:35.549 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 152.1s ago] ('test@example.com',)
+2026-01-08 00:03:35.549 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-08 00:03:35.556 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-08 00:03:35.556 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-08 00:04:07.531 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-08 00:04:42.944 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:04:42.944 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-08 00:04:42.944 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-08 00:04:42.945 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:04:42.946 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:04:42.946 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:04:49.095 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:04:49.101 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:04:49.101 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00024s] ('test@example.com',)
+2026-01-08 00:04:49.102 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-08 00:04:49.107 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-08 00:04:49.107 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-08 00:05:35.560 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:05:35.560 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:05:35.561 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 46.46s ago] ('test@example.com',)
+2026-01-08 00:05:35.561 | WARNING  | passlib.handlers.bcrypt | bcrypt.py:622 | _load_backend_mixin | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/bharat/Documents/Skepesis/.venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-08 00:05:35.567 | ERROR    | app.routers.auth | auth.py:107 | register | Registration error: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2026-01-08 00:05:35.567 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-08 00:07:11.408 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-08 00:07:11.936 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:11.936 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-08 00:07:11.936 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-08 00:07:11.937 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:11.938 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:07:11.938 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:07:32.497 | INFO     | app.main | main.py:30 | lifespan | Shutdown complete
+2026-01-08 00:07:32.996 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:32.996 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("questions")
+2026-01-08 00:07:32.996 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:32.997 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("attempts")
+2026-01-08 00:07:32.997 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:32.997 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("responses")
+2026-01-08 00:07:32.997 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:32.998 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | PRAGMA main.table_info("users")
+2026-01-08 00:07:32.998 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [raw sql] ()
+2026-01-08 00:07:32.998 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:07:32.998 | INFO     | app.main | main.py:27 | lifespan | Startup complete
+2026-01-08 00:07:50.447 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:50.452 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:07:50.452 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00019s] ('test@example.com',)
+2026-01-08 00:07:50.663 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | INSERT INTO users (email, username, hashed_password, is_active, role) VALUES (?, ?, ?, ?, ?) RETURNING id, created_at
+2026-01-08 00:07:50.663 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00022s] ('test@example.com', 'teststudent', '$2b$12$03vewZDtdqbnCoYsBjHxDO3lLinWBPNZQhwc1/4Ff1j6q/FegOyp6', 1, 'STUDENT')
+2026-01-08 00:07:50.664 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:07:50.666 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:50.667 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.id = ?
+2026-01-08 00:07:50.667 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [generated in 0.00012s] (1,)
+2026-01-08 00:07:50.667 | INFO     | app.routers.auth | auth.py:101 | register | New user registered: test@example.com
+2026-01-08 00:07:50.668 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:07:50.688 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:50.689 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:07:50.689 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 0.237s ago] ('test@example.com',)
+2026-01-08 00:07:50.901 | INFO     | app.routers.auth | auth.py:64 | login | User logged in: test@example.com
+2026-01-08 00:07:50.901 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:07:50.903 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:07:50.903 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:07:50.904 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 0.4518s ago] ('test@example.com',)
+2026-01-08 00:07:50.904 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:28:41.738 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:28:41.738 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:28:41.738 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 1251s ago] ('test@example.com',)
+2026-01-08 00:28:41.738 | INFO     | sqlalchemy.engine.Engine | base.py:2713 | _connection_rollback_impl | ROLLBACK
+2026-01-08 00:28:41.741 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:28:41.741 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:28:41.741 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 1251s ago] ('test@example.com',)
+2026-01-08 00:28:41.950 | INFO     | app.routers.auth | auth.py:64 | login | User logged in: test@example.com
+2026-01-08 00:28:41.950 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT
+2026-01-08 00:28:41.952 | INFO     | sqlalchemy.engine.Engine | base.py:2710 | _connection_begin_impl | BEGIN (implicit)
+2026-01-08 00:28:41.952 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | SELECT users.id, users.email, users.username, users.hashed_password, users.is_active, users.created_at, users.role 
+FROM users 
+WHERE users.email = ?
+2026-01-08 00:28:41.952 | INFO     | sqlalchemy.engine.Engine | base.py:1846 | _execute_context | [cached since 1252s ago] ('test@example.com',)
+2026-01-08 00:28:41.953 | INFO     | sqlalchemy.engine.Engine | base.py:2716 | _connection_commit_impl | COMMIT

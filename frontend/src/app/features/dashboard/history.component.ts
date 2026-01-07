@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router'; // Added RouterModule for routerLink in HTML
+import { ApiService } from '../../core/services/api'; // Import API Service
 
+// Updated interface to include ID (needed for navigation)
 interface QuizSession {
+  id: string; // Added ID
   userName: string;
   date: string;
   score: number;
@@ -13,29 +17,41 @@ interface QuizSession {
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
   searchTerm: string = '';
-  
-  // Mocking the data from your "bharat" session screenshot
-  allSessions: QuizSession[] = [
-    {
-      userName: 'bharat',
-      date: 'Jan 1',
-      score: 20,
-      questions: 5,
-      curiosity: 33
-    }
-  ];
-
+  allSessions: QuizSession[] = []; // Data now comes from API
   sessions: QuizSession[] = [];
 
+  constructor(
+    private router: Router,
+    private api: ApiService // Inject API Service
+  ) {}
+
   ngOnInit() {
-    // Initially show all sessions
-    this.sessions = [...this.allSessions];
+    // specific call to fetch real data
+    this.api.getAttempts().subscribe({
+      next: (data) => {
+        // Map Backend Data (snake_case) to Your Interface (camelCase)
+        this.allSessions = data.map((item: any) => ({
+          id: item.id,
+          userName: item.student_name, // Map student_name -> userName
+          date: new Date(item.started_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+          score: item.total_questions > 0 
+            ? Math.round((item.correct_answers / item.total_questions) * 100) 
+            : 0, // Calculate percentage score
+          questions: item.total_questions,
+          curiosity: Math.round(item.curiosity_score || 0)
+        }));
+
+        // Initialize the view
+        this.sessions = [...this.allSessions];
+      },
+      error: (err) => console.error('Error loading history:', err)
+    });
   }
 
   search() {
@@ -47,5 +63,10 @@ export class HistoryComponent implements OnInit {
     this.sessions = this.allSessions.filter(s => 
       s.userName.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  viewSessionDetails(sessionId: string) {
+    // Now uses the actual ID from the clicked session
+    this.router.navigate(['/attempt', sessionId]);
   }
 }

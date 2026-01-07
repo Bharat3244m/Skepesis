@@ -26,22 +26,26 @@
   <div class="sessions-list">
     <h3 class="section-title">Recent Sessions</h3>
     
-    <div class="session-card">
+    <div *ngIf="sessions.length === 0" class="empty-state">
+      <p>No sessions found. Start a quiz to see your history!</p>
+    </div>
+    
+    <div class="session-card" *ngFor="let session of sessions" (click)="viewSessionDetails(session.id)">
       <div class="session-main">
-        <div class="avatar">B</div>
+        <div class="avatar">{{ session.userName.charAt(0).toUpperCase() }}</div>
         <div class="info">
-          <h4>bharat</h4>
-          <span class="date">Jan 1 • 5 Questions</span>
+          <h4>{{ session.userName }}</h4>
+          <span class="date">{{ session.date }} • {{ session.questions }} Questions</span>
         </div>
       </div>
       <div class="session-stats">
         <div class="mini-stat">
-          <span class="val success">80%</span>
+          <span class="val" [class.success]="session.score >= 70" [class.warning]="session.score >= 50 && session.score < 70" [class.error]="session.score < 50">{{ session.score }}%</span>
           <span class="lbl">Score</span>
         </div>
         <div class="mini-stat">
-          <span class="val">High</span>
-          <span class="lbl">Conf.</span>
+          <span class="val">{{ session.curiosity }}</span>
+          <span class="lbl">Curiosity</span>
         </div>
       </div>
       <div class="session-status completed">Completed</div>

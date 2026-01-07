@@ -1,52 +1,100 @@
 <div class="quiz-container">
+  
+  <!-- Quiz Setup Screen -->
+  <div *ngIf="!quizStarted" class="quiz-setup">
+    <h1>Start a New Quiz</h1>
+    <p>Customize your quiz settings below</p>
+
+    <div class="setup-form">
+      <div class="form-group">
+        <label>Number of Questions</label>
+        <select [(ngModel)]="questionCount" class="form-select">
+          <option [value]="5">5 Questions</option>
+          <option [value]="10">10 Questions</option>
+          <option [value]="15">15 Questions</option>
+          <option [value]="20">20 Questions</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <select [(ngModel)]="selectedCategory" class="form-select">
+          <option [value]="0">Any Category</option>
+          <option *ngFor="let cat of categories | keyvalue" [value]="cat.key">
+            {{ cat.value }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Difficulty</label>
+        <select [(ngModel)]="selectedDifficulty" class="form-select">
+          <option value="any">Any Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <button class="btn-primary btn-block" (click)="startQuiz()" [disabled]="loading">
+        {{ loading ? 'Loading...' : 'Start Quiz' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Quiz In Progress -->
+  <div *ngIf="quizStarted && !loading">
   <div class="quiz-header">
     <div class="progress-info">
-      <span class="q-count">Question 1 of 10</span>
-      <span class="timer">00:15</span>
+      <span class="q-count">Question {{ currentIdx + 1 }} of {{ questions.length }}</span>
+      <span class="timer">{{ formatTime() }}</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 10%;"></div>
+      <div class="progress-fill" [style.width.%]="((currentIdx + 1) / questions.length) * 100"></div>
     </div>
   </div>
 
   <div class="question-card">
-    <span class="category-badge">Science</span>
-    <h2 class="question-text">What is the powerhouse of the cell?</h2>
+    <span class="category-badge">{{ currentQuestion.category }}</span>
+    <h2 class="question-text">{{ currentQuestion.text }}</h2>
     
     <div class="options-grid">
-      <button class="option-btn">
-        <span class="key">A</span>
-        <span class="val">Nucleus</span>
-      </button>
-      <button class="option-btn selected">
-        <span class="key">B</span>
-        <span class="val">Mitochondria</span>
-      </button>
-      <button class="option-btn">
-        <span class="key">C</span>
-        <span class="val">Ribosome</span>
-      </button>
-      <button class="option-btn">
-        <span class="key">D</span>
-        <span class="val">Chloroplast</span>
+      <button 
+        *ngFor="let option of currentQuestion.options" 
+        class="option-btn" 
+        [class.selected]="selectedOptionId === option.id"
+        (click)="selectOption(option.id)">
+        <span class="key">{{ option.id }}</span>
+        <span class="val">{{ option.text }}</span>
       </button>
     </div>
   </div>
 
   <div class="confidence-section">
     <div class="conf-header">
-      <label>Confidence</label>
-      <span class="conf-value">High</span>
+      <label>How confident are you?</label>
+      <span class="conf-value">{{ currentConfidence }}%</span>
     </div>
-    <input type="range" min="1" max="5" class="confidence-slider">
+    <input 
+      type="range" 
+      min="0" 
+      max="100" 
+      [(ngModel)]="currentConfidence"
+      class="confidence-slider">
     <div class="conf-labels">
-      <span>Low</span>
-      <span>Medium</span>
-      <span>High</span>
+      <span>Not Sure</span>
+      <span>Confident</span>
+      <span>Very Sure</span>
     </div>
   </div>
 
   <div class="actions">
-    <button class="btn-primary btn-block">Next Question</button>
+    <button 
+      class="btn-primary btn-block" 
+      (click)="nextQuestion()"
+      [disabled]="!selectedOptionId">
+      {{ currentIdx < questions.length - 1 ? 'Next Question' : 'Finish Quiz' }}
+    </button>
+  </div>
   </div>
 </div>

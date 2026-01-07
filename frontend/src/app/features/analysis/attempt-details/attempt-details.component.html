@@ -1,31 +1,135 @@
-<div class="attempt-details-page">
-    <div class="breadcrumb">
-        <a routerLink="/">Home</a> / <a routerLink="/dashboard">Progress</a> / Attempt Details
-    </div>
-    
-    <h1 class="details-title">bharat's Session</h1>
-    
-    <div class="filter-tabs">
-        <button class="filter-tab active">All <span>5</span></button>
-        <button class="filter-tab">✓ Correct <span>1</span></button>
-        <button class="filter-tab">✗ Incorrect <span>4</span></button>
+<div class="details-container">
+  
+  <div class="breadcrumb">
+    <a routerLink="/dashboard">← Back to Dashboard</a>
+    <span class="divider">/</span>
+    <span>Session #{{ attemptId }}</span>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading session details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="error-state">
+    <p>{{ error }}</p>
+    <button routerLink="/dashboard" class="btn-back">Back to Dashboard</button>
+  </div>
+
+  <!-- Content (only show when not loading and no error) -->
+  <div *ngIf="!loading && !error" class="content-wrapper">
+
+  <div class="summary-card">
+    <div class="card-header">
+      <div class="title-group">
+        <span class="id-badge">SESSION #{{ session.id }}</span>
+        <h1>{{ session.student }}'s Analysis</h1>
+      </div>
+      <span class="status-badge">{{ session.status }}</span>
     </div>
 
-    <div class="questions-list">
-        <div class="question-item incorrect">
-            <div class="item-header">
-                <span class="q-num">Question 1</span>
-                <span class="badge result-badge incorrect">✗ INCORRECT</span>
-            </div>
-            <p class="q-text">What was the name of the first Bulgarian personal computer?</p>
-            <div class="answer-box">
-                <p>Your Answer: <span class="user-val">B</span></p>
-                <p>Correct Answer: <span class="correct-val">D (IMKO-1)</span></p>
-            </div>
-            <div class="meta-row">
-                <span>Confidence: 😐 50%</span>
-                <span>Pattern: 🎯 Calibrated</span>
-            </div>
-        </div>
+    <div class="card-meta">
+      <span>📅 {{ session.date }} • {{ session.time }}</span>
+      <span>📝 {{ session.questions_count }} Questions</span>
     </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-value" [style.color]="getAccuracyColor(session.stats.accuracy)">
+          {{ session.stats.accuracy }}%
+        </span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Curiosity</span>
+        <span class="stat-value">{{ session.stats.curiosity }}</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Confidence</span>
+        <span class="stat-value">{{ session.stats.confidence }}%</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Alignment</span>
+        <span class="stat-value">{{ session.stats.alignment }}%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="breakdown-section">
+    <div class="section-header">
+      <h2>Question Breakdown</h2>
+      
+      <div class="filters">
+        <button 
+          [class.active]="activeFilter === 'all'" 
+          (click)="setFilter('all')">
+          All
+        </button>
+        <button 
+          [class.active]="activeFilter === 'correct'" 
+          (click)="setFilter('correct')">
+          Correct
+        </button>
+        <button 
+          [class.active]="activeFilter === 'incorrect'" 
+          (click)="setFilter('incorrect')">
+          Incorrect
+        </button>
+      </div>
+    </div>
+
+    <div class="responses-list">
+      <div class="response-card" *ngFor="let q of filteredResponses; let i = index" 
+           [class.is-correct]="q.is_correct" 
+           [class.is-incorrect]="!q.is_correct">
+        
+        <div class="q-header">
+          <span class="q-num">Question {{ q.id }}</span>
+          <span class="category-tag">{{ q.category }}</span>
+          <span class="result-tag" [class.success]="q.is_correct" [class.error]="!q.is_correct">
+            {{ q.is_correct ? '✓ Correct' : '✗ Incorrect' }}
+          </span>
+        </div>
+
+        <h3 class="q-text">{{ q.text }}</h3>
+
+        <div class="answers-grid">
+          <div class="ans-box user-ans" [class.wrong]="!q.is_correct">
+            <span class="lbl">Your Answer</span>
+            <span class="val">{{ q.user_answer }}</span>
+          </div>
+          <div class="ans-box correct-ans" *ngIf="!q.is_correct">
+            <span class="lbl">Correct Answer</span>
+            <span class="val">{{ q.correct_answer }}</span>
+          </div>
+        </div>
+
+        <div class="q-footer">
+          <div class="meta-item">
+            <span class="meta-lbl">Confidence</span>
+            <div class="conf-bar-wrapper">
+              <div class="conf-bar" [style.width.%]="q.confidence" 
+                   [class.high]="q.confidence >= 75" 
+                   [class.low]="q.confidence < 50"></div>
+            </div>
+            <span class="meta-val">{{ q.confidence }}%</span>
+          </div>
+
+          <div class="meta-item pattern-item">
+            <ng-container *ngIf="getPattern(q.is_correct, q.confidence) as pat">
+              <span class="meta-lbl">Pattern</span>
+              <span class="pattern-badge {{ pat.class }}">
+                {{ pat.icon }} {{ pat.label }}
+              </span>
+            </ng-container>
+          </div>
+        </div>
+
+
+  </div> <!-- end content-wrapper -->
+      </div>
+    </div>
+  </div>
 </div>
